@@ -1,0 +1,40 @@
+{
+  "paper_id": "arxiv-1907.11157",
+  "source_pdf": "https://arxiv.org/pdf/1907.11157",
+  "review_status": "machine_extracted_requires_human_review",
+  "evidence": [
+    {
+      "evidence_id": "1907.11157-e1",
+      "claim": "For a classical code correcting t errors, the review states the distance relation d = 2t + 1.",
+      "page": 3,
+      "equation": "(2)",
+      "figure": null,
+      "table": null,
+      "locator": "Section 2, repetition-code discussion",
+      "evidence_type": "equation",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "1907.11157-e2",
+      "claim": "A general coherent single-qubit error can be expanded in the Pauli basis and reduced to components from {I, X, Z, XZ}; stabilizer measurement digitizes the error into correctable Pauli classes.",
+      "page": 4,
+      "equations": ["(6)", "(7)", "(8)"],
+      "figure": "Figure 1",
+      "table": null,
+      "locator": "Section 2.2, digitisation of quantum errors",
+      "evidence_type": "equation_and_explanation",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "1907.11157-e3",
+      "claim": "For the two-qubit detection code, the syndrome table assigns syndrome 1 to single X errors and syndrome 0 to identity or two-qubit X errors.",
+      "page": 7,
+      "equation": "(18)",
+      "figure": "Figure 2",
+      "table": "Table 1",
+      "locator": "Section 3, stabilizer measurement",
+      "evidence_type": "table_and_circuit",
+      "confidence": 0.99
+    }
+  ]
+}
