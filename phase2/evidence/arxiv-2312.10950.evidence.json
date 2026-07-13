@@ -1,0 +1,41 @@
+{
+  "paper_id": "arxiv-2312.10950",
+  "source_pdf": "https://arxiv.org/pdf/2312.10950",
+  "review_status": "machine_extracted_requires_human_review",
+  "evidence": [
+    {
+      "evidence_id": "2312.10950-e1",
+      "claim": "BPGD repeatedly runs BP and decimates variables until BP converges or all variables are fixed; failure to match the syndrome after full decimation is classified as non-convergence.",
+      "page": 9,
+      "algorithm": "Algorithm 1",
+      "equation": null,
+      "figure": null,
+      "table": null,
+      "locator": "Section 4.3, BPGD procedure",
+      "evidence_type": "algorithm",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "2312.10950-e2",
+      "claim": "On the [[882,24,18<=d<=24]] B1 code under bit-flip noise, reliability-ordered decimation outperforms random decimation, and BPGD improves substantially over ordinary BP.",
+      "page": 10,
+      "figure": "Figure 2",
+      "equation": "(36)",
+      "table": null,
+      "locator": "Section 4.4, numerical results",
+      "evidence_type": "figure_and_text",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "2312.10950-e3",
+      "claim": "Reducing BP iterations per decimation round from T=100 to T=10 produces little performance degradation on the tested B1 code, while T=10 gives the best reported comparison against BP, BP-OSD order 0, and BP-SI in Figure 4.",
+      "page": 10,
+      "figures": ["Figure 3", "Figure 4"],
+      "equation": null,
+      "table": null,
+      "locator": "Sections 4.4-4.5",
+      "evidence_type": "figure_and_comparison",
+      "confidence": 0.97
+    }
+  ]
+}
