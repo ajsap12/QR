@@ -1,0 +1,40 @@
+{
+  "paper_id": "arxiv-2509.22347",
+  "source_pdf": "https://arxiv.org/pdf/2509.22347",
+  "review_status": "machine_extracted_requires_human_review",
+  "evidence": [
+    {
+      "evidence_id": "2509.22347-e1",
+      "claim": "The diffusion decoder predicts logical errors conditioned on syndrome information through iterative denoising, analogous to conditional diffusion in image generation.",
+      "page": 2,
+      "figure": "Figure 1",
+      "equation": null,
+      "table": null,
+      "locator": "Method overview",
+      "evidence_type": "figure_and_method",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "2509.22347-e2",
+      "claim": "For the [[72,12,6]] and [[144,12,12]] BB-code tests under circuit-level noise, the masked diffusion decoder is among the lowest-LER methods and matches or exceeds BP-OSD in the tested regimes while offering better latency on the larger code.",
+      "page": 4,
+      "figure": "Figure 2",
+      "equation": null,
+      "table": null,
+      "locator": "Section III.A, circuit-level decoding results",
+      "evidence_type": "figure_and_comparison",
+      "confidence": 0.96
+    },
+    {
+      "evidence_id": "2509.22347-e3",
+      "claim": "Inference time scales approximately linearly with the number of diffusion steps T, and reducing T can preserve useful decoding accuracy; the paper identifies the source of residual accuracy differences as an open question.",
+      "page": 4,
+      "figure": "Figure 2",
+      "equation": null,
+      "table": null,
+      "locator": "Section III.A, T-ablation discussion",
+      "evidence_type": "figure_and_ablation",
+      "confidence": 0.98
+    }
+  ]
+}
