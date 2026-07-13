@@ -1,0 +1,40 @@
+{
+  "paper_id": "arxiv-2306.09767",
+  "source_pdf": "https://arxiv.org/pdf/2306.09767",
+  "review_status": "machine_extracted_requires_human_review",
+  "evidence": [
+    {
+      "evidence_id": "2306.09767-e1",
+      "claim": "The paper reports that union-find decoding operates in practice with O(n) complexity for both 2D independent and 3D phenomenological noise models, even without union-by-size and path compression.",
+      "page": 4,
+      "figure": "Figure 2",
+      "equation": null,
+      "table": null,
+      "locator": "Section III.A, saturation regimes",
+      "evidence_type": "figure_and_scaling_claim",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "2306.09767-e2",
+      "claim": "The decoder's erasure clusters remain in a strictly sparse, non-percolating regime as lattice size grows, undermining worst-case assumptions that cluster size scales with the full lattice.",
+      "page": 8,
+      "figure": null,
+      "equation": null,
+      "table": null,
+      "locator": "Conclusion and asymptotic discussion",
+      "evidence_type": "textual_result",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "2306.09767-e3",
+      "claim": "The peeling stage first removes cycles to form a spanning forest and then iteratively prunes leaves to obtain a maximum-likelihood cover of the syndrome.",
+      "page": 3,
+      "figure": null,
+      "equation": null,
+      "table": null,
+      "locator": "Section II, peeling decoder description",
+      "evidence_type": "algorithm_description",
+      "confidence": 0.96
+    }
+  ]
+}
