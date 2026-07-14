@@ -1,0 +1,60 @@
+experiment_id: E-003
+title: Seven-paper reproducibility audit
+status: design_only
+objective: >-
+  Determine whether each seed paper exposes enough artifacts and detail to
+  reproduce its principal reported result or a clearly defined minimal subset.
+
+papers:
+  - arxiv-1907.11157
+  - arxiv-2306.09767
+  - arxiv-2312.10950
+  - arxiv-2408.10001
+  - arxiv-2509.22347
+  - arxiv-2510.05211
+  - arxiv-2602.07578
+
+checklist:
+  - public_source_code
+  - tagged_release_or_commit
+  - license
+  - environment_or_dependency_lock
+  - exact_code_instances
+  - algorithm_pseudocode
+  - hyperparameters
+  - random_seeds
+  - noise_model_definition
+  - circuit_or_syndrome_conventions
+  - stopping_rules
+  - sample_counts
+  - hardware_details
+  - raw_or_processed_results
+  - plotting_scripts
+
+classification:
+  reproducible: "Principal result reruns within predeclared tolerance."
+  partially_reproducible: "A meaningful subset reruns, but key details or artifacts are missing."
+  blocked: "Rerun cannot proceed without undocumented information, unavailable code, or inaccessible data."
+  not_applicable: "Pedagogical/review content without a principal computational result."
+
+procedure:
+  - Verify the exact paper version and evidence locators.
+  - Locate official repositories and archived artifacts.
+  - Record immutable URLs, commits, licenses, and checksums.
+  - Attempt installation in a clean environment.
+  - Run the smallest documented example.
+  - Attempt one principal figure, table, theorem check, or benchmark subset.
+  - Compare within predeclared numeric and qualitative tolerances.
+  - Record every deviation, patch, assumption, and author-contact requirement.
+
+resource_policy:
+  initial_cap: "CPU only; <= 2 hours per paper"
+  escalation: "Any larger rerun requires approval and an explicit compute estimate."
+
+outputs:
+  - per_paper_audit_json
+  - artifact_registry
+  - environment_logs
+  - deviation_log
+  - reproducibility_matrix
+  - blocked_questions_for_authors

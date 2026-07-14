@@ -1,0 +1,84 @@
+experiment_id: E-002
+title: Self-dual versus unconstrained coprime BB-code tradeoff study
+status: design_only_requires_approval
+hypothesis: H-002
+objective: >-
+  Quantify whether self-duality and transversal-Clifford constraints impose
+  structural, search, layout, or decoding tradeoffs relative to matched
+  unconstrained coprime BB-code families.
+
+prerequisites:
+  - Verify supporting Phase 2 evidence locators.
+  - Reproduce at least one published code instance from each construction.
+  - Freeze code-generation and distance-estimation software versions.
+
+matched_design:
+  block_length_bins: "Predeclare at least four overlapping n ranges."
+  stabilizer_weight_caps: "Use identical caps in paired searches."
+  search_budget: "Equal candidate evaluations and wall-clock cap per bin."
+  code_panels: 2
+  independent_generation_seeds: true
+
+factors:
+  - self_duality_constraint
+  - block_length_bin
+  - stabilizer_weight_cap
+  - noise_model
+  - decoder
+
+primary_metrics:
+  - encoding_rate
+  - minimum_distance_or_certified_lower_bound
+  - stabilizer_weight_distribution
+  - connectivity_or_layout_cost
+  - logical_error_rate
+  - search_success_rate
+  - search_runtime
+  - transversal_clifford_availability
+
+noise_models:
+  - code_capacity_depolarizing
+  - phenomenological_depolarizing
+  - erasure
+
+decoder_policy: >-
+  Use one reproducible classical decoder across all codes for the primary
+  comparison. Additional decoders are secondary analyses.
+
+statistical_plan:
+  pairing: "Pair codes by nearest block length, rate target, and weight cap."
+  primary_analysis: "Report paired differences and bootstrap confidence intervals."
+  equivalence_margins: "Predeclare practical equivalence margins before code search."
+  replication: "Repeat the search with an independent seed panel."
+
+stages:
+  - stage: 0
+    name: generator_validation
+    exit_criteria: "Published reference instances and algebraic constraints reproduce."
+  - stage: 1
+    name: small_search_smoke_test
+    compute_cap: "CPU only; <= 2 hours total"
+  - stage: 2
+    name: matched_pilot_panel
+    requires_human_approval: true
+  - stage: 3
+    name: full_matched_search
+    requires_human_approval: true
+  - stage: 4
+    name: decoding_and_replication
+    requires_human_approval: true
+
+failure_conditions:
+  - Distance estimation is inconsistent between panels.
+  - Search budgets cannot be normalized.
+  - Too few matched code pairs are found for the predeclared analysis.
+  - Results do not replicate on the second seed panel.
+
+outputs:
+  - code_instance_registry
+  - search_manifest
+  - paired_metric_table
+  - decoding_results
+  - confidence_intervals
+  - environment_lockfile
+  - replication_report
