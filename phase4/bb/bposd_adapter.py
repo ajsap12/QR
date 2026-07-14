@@ -25,16 +25,18 @@ class BpOsdAdapter:
         if not 0.0 < config.error_rate < 1.0:
             raise ValueError("error_rate must be between 0 and 1")
         try:
+            import numpy as np
             from ldpc import BpOsdDecoder  # type: ignore
         except ImportError as exc:
             raise RuntimeError(
-                "Install the official `ldpc` package before using BpOsdAdapter"
+                "Install pinned dependencies before using BpOsdAdapter"
             ) from exc
 
-        self._parity_check = parity_check
+        self._np = np
+        self._parity_check = np.asarray(parity_check, dtype=np.uint8)
         self._config = config
         self._decoder: Any = BpOsdDecoder(
-            parity_check,
+            self._parity_check,
             error_rate=config.error_rate,
             max_iter=config.max_iter,
             bp_method=config.bp_method,
@@ -44,5 +46,6 @@ class BpOsdAdapter:
         )
 
     def decode(self, syndrome: Sequence[int]) -> tuple[int, ...]:
-        result = self._decoder.decode(syndrome)
+        syndrome_array = self._np.asarray(syndrome, dtype=self._np.uint8)
+        result = self._decoder.decode(syndrome_array)
         return tuple(int(bit) & 1 for bit in result)
