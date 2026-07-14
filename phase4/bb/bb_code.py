@@ -104,14 +104,40 @@ def build_bb_code(
     return BBCode(l=l, m=m, a_terms=a_tuple, b_terms=b_tuple, hx=hx, hz=hz)
 
 
-def published_144_12_instance() -> BBCode:
-    """Bravyi et al. [[144,12,12]] BB instance, without re-certifying distance.
+def published_72_12_instance() -> BBCode:
+    """Bravyi et al. [[72,12,6]] BB instance; distance not re-certified here."""
+    return build_bb_code(
+        6,
+        6,
+        a_terms=((3, 0), (0, 1), (0, 2)),
+        b_terms=((0, 3), (1, 0), (2, 0)),
+    )
 
-    l=12, m=6, A=x^3+y+y^2, B=y^3+x+x^2.
-    """
+
+def published_108_8_instance() -> BBCode:
+    """Bravyi et al. [[108,8,10]] BB instance; distance not re-certified here."""
+    return build_bb_code(
+        9,
+        6,
+        a_terms=((3, 0), (0, 1), (0, 2)),
+        b_terms=((0, 3), (1, 0), (2, 0)),
+    )
+
+
+def published_144_12_instance() -> BBCode:
+    """Bravyi et al. [[144,12,12]] BB instance; distance not re-certified here."""
     return build_bb_code(
         12,
         6,
         a_terms=((3, 0), (0, 1), (0, 2)),
         b_terms=((0, 3), (1, 0), (2, 0)),
+    )
+
+
+def published_primary_panel() -> tuple[tuple[str, BBCode], ...]:
+    """Small published panel used for bounded CPU integration sweeps."""
+    return (
+        ("[[72,12,6]]", published_72_12_instance()),
+        ("[[108,8,10]]", published_108_8_instance()),
+        ("[[144,12,12]]", published_144_12_instance()),
     )
