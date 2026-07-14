@@ -1,0 +1,96 @@
+experiment_id: E-001
+title: Matched BB-code decoder benchmark
+status: design_only_requires_approval
+hypothesis: H-001
+objective: >-
+  Compare BPGD, BP-OSD, and diffusion decoding under identical BB-code,
+  syndrome, noise, stopping-rule, and compute-accounting conditions.
+
+prerequisites:
+  - Verify supporting Phase 2 evidence locators.
+  - Obtain or independently implement all three decoders.
+  - Version and checksum every code instance.
+  - Complete CPU smoke tests before any GPU allocation.
+
+code_panel:
+  selection_rule: "At least three published BB codes spanning small, medium, and largest reproducible sizes."
+  required_fields: [name, n, k, distance_or_bound, stabilizer_weight, source]
+
+noise_models:
+  primary:
+    - phenomenological_depolarizing
+    - code_capacity_depolarizing
+  secondary_after_primary_gate:
+    - biased_pauli
+    - circuit_level
+
+physical_error_rates:
+  rule: "Predeclare a grid spanning below, near, and above the reported crossing/threshold region."
+  minimum_points_per_regime: 7
+
+decoders:
+  - name: BP-OSD
+    role: classical_reference
+  - name: BPGD
+    role: classical_candidate
+  - name: diffusion
+    role: learned_candidate
+
+fairness_controls:
+  shared_syndrome_samples: true
+  fixed_seed_registry: true
+  predeclared_timeouts: true
+  matched_failure_definition: true
+  hardware_accounting: "Record CPU/GPU model, cores, memory, precision, software versions, wall time, and machine-hours."
+  neural_cost_accounting: "Include training, preprocessing, failed runs, and hyperparameter search."
+
+primary_metrics:
+  - logical_error_rate
+  - confidence_interval_95
+  - latency_per_shot
+  - throughput
+  - peak_memory
+  - total_lifecycle_machine_hours
+  - nonconvergence_rate
+
+statistical_plan:
+  target_failures_per_point: 100
+  minimum_shots_per_point: 10000
+  stopping_rule: "Continue until target failures or the approved shot cap is reached."
+  interval_method: wilson_or_exact_binomial
+  multiple_comparison_policy: "Predeclare primary pairwise comparisons and control false discovery rate for secondary analyses."
+  replication: "Repeat with a disjoint seed set and, when possible, a second implementation or operator."
+
+stages:
+  - stage: 0
+    name: static_validation
+    exit_criteria: "All configs validate; parity checks and syndrome conventions agree."
+  - stage: 1
+    name: tiny_smoke_test
+    compute_cap: "CPU only; <= 1 hour total"
+    exit_criteria: "Each decoder returns valid corrections on tiny instances."
+  - stage: 2
+    name: pilot
+    compute_cap: "Human-approved cap"
+    exit_criteria: "Runtime, memory, and variance estimates support the full design."
+  - stage: 3
+    name: primary_benchmark
+    requires_human_approval: true
+  - stage: 4
+    name: independent_replication
+    requires_human_approval: true
+
+failure_conditions:
+  - Incompatible syndrome or correction conventions.
+  - Missing implementation details prevent faithful reproduction.
+  - Any decoder exceeds the predeclared resource cap before producing analyzable results.
+  - Confidence intervals remain too wide at the approved shot cap.
+
+outputs:
+  - machine_readable_results
+  - environment_lockfile
+  - seed_registry
+  - run_manifest
+  - plots_with_uncertainty
+  - failure_log
+  - replication_report
