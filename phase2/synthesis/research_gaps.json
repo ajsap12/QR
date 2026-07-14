@@ -1,0 +1,55 @@
+{
+  "version": "0.1",
+  "status": "provisional_machine_synthesis",
+  "ranking_dimensions": ["novelty", "scientific_value", "feasibility", "compute_cost", "evidence_readiness"],
+  "gaps": [
+    {
+      "id": "G-001",
+      "title": "Matched BPGD versus diffusion benchmark on identical BB codes",
+      "description": "No result in the seven-paper seed set establishes a controlled comparison of BPGD and diffusion decoding with the same BB code instances, noise model, stopping rules, sample count, and hardware budget.",
+      "candidate_experiment": "Select published BB codes; test BPGD, BP-OSD, and diffusion under identical phenomenological and circuit-level noise; report LER, latency, memory, training cost, and confidence intervals.",
+      "priority": 1,
+      "risk": "Diffusion implementation and training details may not be fully reproducible from the paper alone."
+    },
+    {
+      "id": "G-002",
+      "title": "Self-duality tradeoff study for BB codes",
+      "description": "The seed literature does not quantify how self-duality and transversal Clifford requirements trade against code rate, distance, layout, stabilizer weight, and decoder performance.",
+      "candidate_experiment": "Generate matched coprime BB families with and without self-dual constraints and compare structural and decoding metrics.",
+      "priority": 2,
+      "risk": "Code-search space may be large and distance computation expensive."
+    },
+    {
+      "id": "G-003",
+      "title": "Cross-noise robustness of BB constructions",
+      "description": "BB-code claims span construction, erasure behavior, and logical-gate structure, but the seed set lacks a unified evaluation across erasure, depolarizing, biased, phenomenological, and circuit-level noise.",
+      "candidate_experiment": "Evaluate a fixed BB code panel under multiple noise models using at least two decoder families and common logical-failure definitions.",
+      "priority": 3,
+      "risk": "Circuit-level simulations may require substantial compute and careful syndrome-circuit design."
+    },
+    {
+      "id": "G-004",
+      "title": "Decoder cost accounting including neural training",
+      "description": "Decoder comparisons often emphasize inference latency or logical error rate without consistently including training, hyperparameter search, preprocessing, memory, and energy costs.",
+      "candidate_experiment": "Define lifecycle cost metrics and publish accuracy-versus-total-compute Pareto curves for BP-OSD, BPGD, union-find, and diffusion-based methods where applicable.",
+      "priority": 4,
+      "risk": "Cross-platform energy and cost measurements can be noisy."
+    },
+    {
+      "id": "G-005",
+      "title": "Scaling beyond reported code sizes",
+      "description": "The seed papers do not provide a common, independently replicated scaling study across decoder families and code constructions.",
+      "candidate_experiment": "Run increasing code sizes until memory, latency, convergence, or sampling precision becomes limiting; fit empirical scaling laws with uncertainty.",
+      "priority": 5,
+      "risk": "Low logical error rates demand importance sampling or very large Monte Carlo budgets."
+    },
+    {
+      "id": "G-006",
+      "title": "Reproducibility and implementation completeness audit",
+      "description": "The evidence set has not yet established whether all algorithms, hyperparameters, code instances, random seeds, and evaluation scripts needed for replication are publicly available.",
+      "candidate_experiment": "Create a reproducibility checklist for all seven papers and attempt minimal reruns before launching novel experiments.",
+      "priority": 1,
+      "risk": "Missing code or undocumented details may require author contact or independent reimplementation."
+    }
+  ]
+}
