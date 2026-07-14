@@ -1,0 +1,67 @@
+{
+  "version": "0.1",
+  "status": "provisional_machine_synthesis",
+  "promotion_rule": "Do not mark any item confirmed until all supporting evidence locators are independently checked against the rendered PDFs.",
+  "items": [
+    {
+      "id": "C-001",
+      "type": "apparent_conflict",
+      "topic": "Decoder superiority: diffusion versus BP-OSD/BP-family methods",
+      "papers": ["arxiv-2509.22347", "arxiv-2312.10950"],
+      "observation": "Both works motivate alternatives to standard BP-family decoding and include BP-OSD-related comparisons, but their claims cannot yet be treated as contradictory or directly ranked.",
+      "likely_explanations": [
+        "different code instances or code families",
+        "different physical noise models",
+        "different compute and latency budgets",
+        "training and inference costs excluded from one comparison",
+        "different failure definitions or sample counts"
+      ],
+      "required_resolution": "Reconstruct a matched benchmark table from the cited figures/tables and rerun both methods on identical code/noise instances.",
+      "confidence": 0.72
+    },
+    {
+      "id": "C-002",
+      "type": "scope_mismatch",
+      "topic": "Generalizing BB-code performance across erasure and non-erasure noise",
+      "papers": ["arxiv-2602.07578", "arxiv-2408.10001", "arxiv-2510.05211"],
+      "observation": "BiBiEQ focuses on erasure/circuit-level behavior, while the other BB papers emphasize code construction or transversal-gate properties. Performance claims are not interchangeable across these regimes.",
+      "likely_explanations": [
+        "noise-model specialization",
+        "different optimization objectives",
+        "different decoder choices",
+        "hardware assumptions"
+      ],
+      "required_resolution": "Create a common BB code set and evaluate it under erasure, depolarizing, biased, and circuit-level models with fixed decoders.",
+      "confidence": 0.88
+    },
+    {
+      "id": "C-003",
+      "type": "apparent_conflict",
+      "topic": "Fast decoding versus broad QLDPC applicability",
+      "papers": ["arxiv-2306.09767", "arxiv-2312.10950", "arxiv-2509.22347"],
+      "observation": "Union-find-style decoding emphasizes efficient local cluster processing for surface codes, while BPGD and diffusion target broader QLDPC settings. Speed claims should not be compared without accounting for code structure and hardware parallelism.",
+      "likely_explanations": [
+        "surface-code locality",
+        "different asymptotic variables",
+        "CPU/GPU implementation differences",
+        "neural training cost"
+      ],
+      "required_resolution": "Define throughput, latency, memory, and accuracy metrics and benchmark representative surface, hypergraph-product, and BB codes on the same hardware.",
+      "confidence": 0.81
+    },
+    {
+      "id": "C-004",
+      "type": "unresolved_tension",
+      "topic": "Code-quality optimization versus fault-tolerant gate structure",
+      "papers": ["arxiv-2408.10001", "arxiv-2510.05211"],
+      "observation": "Search for favorable coprime BB parameters and imposition of self-duality/transversal Clifford structure may optimize different objectives and could introduce tradeoffs in rate, distance, layout, or decoder performance.",
+      "likely_explanations": [
+        "additional algebraic constraints reduce the search space",
+        "logical-gate benefits offset code-parameter costs",
+        "different code-size regimes"
+      ],
+      "required_resolution": "Generate matched code families with and without self-duality and compare rate, distance, stabilizer weight, layout, gate set, and decoding performance.",
+      "confidence": 0.67
+    }
+  ]
+}
