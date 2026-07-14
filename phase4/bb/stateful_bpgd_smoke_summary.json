@@ -1,0 +1,27 @@
+{
+  "experiment": "custom_stateful_sum_product_bpgd_smoke",
+  "executed_on": "2026-07-14",
+  "execution_environment": "ChatGPT Python runtime; CPU; Python 3.13; NumPy",
+  "configuration": {
+    "physical_error_rate": 0.04,
+    "iterations_per_round": 100,
+    "llr_max": 25.0,
+    "shots_per_code_sector": 10,
+    "fallback": false
+  },
+  "records": [
+    {"code":"[[72,12,6]]","sector":"X","shots":10,"nonconvergence":0,"mean_decimations":0.0},
+    {"code":"[[72,12,6]]","sector":"Z","shots":10,"nonconvergence":0,"mean_decimations":0.0},
+    {"code":"[[108,8,10]]","sector":"X","shots":10,"nonconvergence":0,"mean_decimations":0.0},
+    {"code":"[[108,8,10]]","sector":"Z","shots":10,"nonconvergence":0,"mean_decimations":7.6},
+    {"code":"[[144,12,12]]","sector":"X","shots":10,"nonconvergence":0,"mean_decimations":0.1},
+    {"code":"[[144,12,12]]","sector":"Z","shots":10,"nonconvergence":0,"mean_decimations":5.2}
+  ],
+  "summary": {
+    "total_shots": 60,
+    "total_nonconvergence": 0,
+    "elapsed_seconds": 26.65093684196472
+  },
+  "interpretation": "The custom implementation preserves BP messages across decimation rounds and successfully completed a bounded smoke test on all three published BB matrices and both CSS sectors without fallback.",
+  "warning": "This is only a 60-shot correctness smoke test. It does not establish equivalence to the paper, resolve the previously captured rare failures, or support a decoder performance claim. The pure-Python implementation is currently too slow for a 12,000-shot validation without optimization."
+}
