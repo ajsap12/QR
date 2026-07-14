@@ -1,6 +1,12 @@
 name: BPGD Failure Replay
 
 on:
+  push:
+    branches:
+      - phase-3b-4a-audit-smoke
+    paths:
+      - 'phase4/bb/**'
+      - '.github/workflows/bpgd-failure-replay.yml'
   pull_request:
     branches:
       - phase-3a-hypotheses-experiments
