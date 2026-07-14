@@ -1,0 +1,25 @@
+{
+  "executed_on": "2026-07-13",
+  "ldpc_version": "2.4.0",
+  "code": {
+    "l": 12,
+    "m": 6,
+    "n": 144,
+    "k_reported": 12,
+    "distance_not_recertified": 12
+  },
+  "parity_check": "Hx",
+  "noise_model": "independent_binary_code_capacity",
+  "error_rate": 0.02,
+  "trials": 100,
+  "seed": 20260713,
+  "syndrome_match_count": 100,
+  "residual_syndrome_zero_count": 100,
+  "exact_error_match_count": 100,
+  "mean_error_weight": 2.87,
+  "mean_correction_weight": 2.87,
+  "mean_decode_seconds": 0.00003035045,
+  "max_decode_seconds": 0.0000777369999,
+  "total_seconds": 0.114337465,
+  "interpretation": "This bounded smoke trial validates ldpc package installation, adapter compatibility, and syndrome-consistent decoding on 100 low-rate code-capacity samples. It is not a logical-error-rate benchmark because logical-operator classification and independent distance certification were not implemented."
+}
