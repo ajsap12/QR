@@ -1,0 +1,77 @@
+{
+  "experiment": "isolate_original_16_bpgd_nonconvergence_cases",
+  "executed_on": "2026-07-14",
+  "execution_environment": "ChatGPT Python runtime; CPU; Python 3.13; ldpc==2.4.0",
+  "baseline_configuration": {
+    "bp_method": "ms",
+    "max_iter": 100,
+    "freeze_epsilon": 1e-9,
+    "decoder_reuse_between_decimation_rounds": true,
+    "decimation_limit": "n"
+  },
+  "baseline_result": {
+    "total_trials": 12000,
+    "pure_bpgd_nonconvergence_cases": 16,
+    "all_cases": "[[108,8,10]] only",
+    "x_sector_cases": 9,
+    "z_sector_cases": 7
+  },
+  "variant_results_on_the_same_16_syndromes": [
+    {
+      "variant": "reuse_decoder_max_iter_100_epsilon_1e-9",
+      "resolved": 0,
+      "unresolved": 16
+    },
+    {
+      "variant": "fresh_decoder_each_round_max_iter_100_epsilon_1e-9",
+      "resolved": 0,
+      "unresolved": 16
+    },
+    {
+      "variant": "fresh_decoder_each_round_max_iter_150_epsilon_1e-6",
+      "resolved": 12,
+      "unresolved": 4
+    },
+    {
+      "variant": "fresh_decoder_each_round_max_iter_200_epsilon_1e-9",
+      "resolved": 11,
+      "unresolved": 5
+    },
+    {
+      "variant": "fresh_decoder_each_round_max_iter_500_epsilon_1e-6",
+      "resolved": 13,
+      "unresolved": 3
+    },
+    {
+      "variant": "reverse_llr_sign_interpretation_fresh_decoder",
+      "resolved": 4,
+      "unresolved": 12
+    }
+  ],
+  "full_12000_trial_followup": {
+    "configuration": "fresh decoder each decimation round, max_iter=500, freeze_epsilon=1e-6",
+    "pure_bpgd_nonconvergence_cases": 6,
+    "breakdown": [
+      {"code":"[[72,12,6]]","sector":"X","failures":0},
+      {"code":"[[72,12,6]]","sector":"Z","failures":0},
+      {"code":"[[108,8,10]]","sector":"X","failures":4},
+      {"code":"[[108,8,10]]","sector":"Z","failures":1},
+      {"code":"[[144,12,12]]","sector":"X","failures":1},
+      {"code":"[[144,12,12]]","sector":"Z","failures":0}
+    ]
+  },
+  "diagnosis": [
+    "The original failures are highly sensitive to BP iteration count and freeze strength, so insufficient BP convergence and channel-freezing semantics are likely contributors.",
+    "Simply rebuilding the BP decoder every decimation round does not resolve the baseline failures at max_iter=100.",
+    "Reversing the LLR sign fixes only 4 of 16 and worsens the majority, so a globally reversed reliability sign is not supported.",
+    "No tested parameter variant eliminates every pure-BPGD nonconvergence case; therefore the implementation is not yet validated as faithful to the paper."
+  ],
+  "next_required_checks": [
+    "Verify whether the paper freezes variables by infinite LLR, exact probability 0/1, or another message-level operation.",
+    "Verify whether BP state/messages are restarted or retained after each decimation.",
+    "Verify the exact reliability metric and tie-breaking rule.",
+    "Verify whether decimation may backtrack, randomize among top reliabilities, or declare failure after all variables are fixed.",
+    "Capture immutable syndrome vectors and per-step decimation traces for the remaining failures."
+  ],
+  "scientific_boundary": "The explicit syndrome-safe fallback keeps returned corrections valid, but fallback cases cannot be counted as pure-BPGD successes."
+}
