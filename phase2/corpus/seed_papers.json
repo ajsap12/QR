@@ -1,0 +1,76 @@
+{
+  "generated_on": "2026-07-13",
+  "review_status": "metadata_only",
+  "papers": [
+    {
+      "paper_id": "arxiv-1907.11157",
+      "title": "Quantum Error Correction: An Introductory Guide",
+      "authors": ["Joschka Roffe"],
+      "year": 2019,
+      "source_url": "https://arxiv.org/abs/1907.11157",
+      "topics": ["review", "surface code", "implementation"],
+      "priority": 1,
+      "status": "queued_for_full_text_review"
+    },
+    {
+      "paper_id": "arxiv-2312.10950",
+      "title": "Belief Propagation Decoding of Quantum LDPC Codes with Guided Decimation",
+      "authors": ["Hanwen Yao", "Waleed Abu Laban", "Christian Häger", "Alexandre Graell i Amat", "Henry D. Pfister"],
+      "year": 2023,
+      "source_url": "https://arxiv.org/abs/2312.10950",
+      "topics": ["QLDPC", "belief propagation", "guided decimation", "BP-OSD comparison"],
+      "priority": 1,
+      "status": "queued_for_full_text_review"
+    },
+    {
+      "paper_id": "arxiv-2306.09767",
+      "title": "Union-find quantum decoding without union-find",
+      "authors": ["Sam J. Griffiths", "Dan E. Browne"],
+      "year": 2023,
+      "source_url": "https://arxiv.org/abs/2306.09767",
+      "topics": ["surface code", "union-find", "decoder complexity"],
+      "priority": 2,
+      "status": "queued_for_full_text_review"
+    },
+    {
+      "paper_id": "arxiv-2408.10001",
+      "title": "Coprime Bivariate Bicycle Codes",
+      "authors": ["Ming Wang", "Frank Mueller"],
+      "year": 2024,
+      "source_url": "https://arxiv.org/abs/2408.10001",
+      "topics": ["bivariate bicycle codes", "QLDPC", "code search"],
+      "priority": 1,
+      "status": "queued_for_full_text_review"
+    },
+    {
+      "paper_id": "arxiv-2509.22347",
+      "title": "Decoding quantum low density parity check codes with diffusion",
+      "authors": ["Zejun Liu", "Anqi Gong", "Bryan K. Clark"],
+      "year": 2025,
+      "source_url": "https://arxiv.org/abs/2509.22347",
+      "topics": ["QLDPC", "diffusion decoder", "neural decoder", "bivariate bicycle codes", "BP-OSD comparison"],
+      "priority": 1,
+      "status": "queued_for_full_text_review"
+    },
+    {
+      "paper_id": "arxiv-2510.05211",
+      "title": "Self-dual bivariate bicycle codes with transversal Clifford gates",
+      "authors": ["Zijian Liang", "Yu-An Chen"],
+      "year": 2025,
+      "source_url": "https://arxiv.org/abs/2510.05211",
+      "topics": ["bivariate bicycle codes", "self-dual CSS", "transversal Clifford gates"],
+      "priority": 2,
+      "status": "queued_for_full_text_review"
+    },
+    {
+      "paper_id": "arxiv-2602.07578",
+      "title": "BiBiEQ: Bivariate Bicycle Codes on Erasure Qubits",
+      "authors": ["Ameya S. Bhave", "Navnil Choudhury", "Andrew Nemec", "Kanad Basu"],
+      "year": 2026,
+      "source_url": "https://arxiv.org/abs/2602.07578",
+      "topics": ["bivariate bicycle codes", "erasure qubits", "circuit-level noise", "logical error rate"],
+      "priority": 1,
+      "status": "queued_for_full_text_review"
+    }
+  ]
+}

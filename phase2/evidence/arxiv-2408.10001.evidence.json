@@ -1,0 +1,40 @@
+{
+  "paper_id": "arxiv-2408.10001",
+  "source_pdf": "https://arxiv.org/pdf/2408.10001",
+  "review_status": "machine_extracted_requires_human_review",
+  "evidence": [
+    {
+      "evidence_id": "2408.10001-e1",
+      "claim": "The BB construction is represented by two bivariate polynomials whose monomials define connectivity among X-check, Z-check, left-data, and right-data qubits.",
+      "page": 4,
+      "figure": "Figure 1",
+      "equation": null,
+      "table": null,
+      "locator": "Code construction and layout section",
+      "evidence_type": "figure_and_definition",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "2408.10001-e2",
+      "claim": "Algorithm 1 identifies a set of novel coprime BB codes; Table 1 reports their lattice parameters, defining polynomials, [[n,k,d]] parameters, and kd^2/n scores.",
+      "page": 5,
+      "algorithm": "Algorithm 1",
+      "figure": null,
+      "table": "Table 1",
+      "locator": "Code-search results",
+      "evidence_type": "algorithm_and_table",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "2408.10001-e3",
+      "claim": "The paper highlights a [[54,8,6]] code and notes that previously proposed [[108,16,6]] and [[162,24,6]] codes have exactly two and three times its n and k values, leaving the structural relationship as future work.",
+      "page": 5,
+      "figure": null,
+      "table": "Table 1",
+      "equation": null,
+      "locator": "Discussion immediately preceding Table 1",
+      "evidence_type": "table_and_open_question",
+      "confidence": 0.99
+    }
+  ]
+}

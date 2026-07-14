@@ -1,0 +1,41 @@
+{
+  "paper_id": "arxiv-2510.05211",
+  "source_pdf": "https://arxiv.org/pdf/2510.05211",
+  "review_status": "machine_extracted_requires_human_review",
+  "evidence": [
+    {
+      "evidence_id": "2510.05211-e1",
+      "claim": "The paper introduces self-dual BB codes that support transversal CNOT, Hadamard, and S gates while targeting higher encoding rates than surface and color codes.",
+      "page": 1,
+      "figure": null,
+      "equation": null,
+      "table": null,
+      "locator": "Abstract and introduction",
+      "evidence_type": "stated_contribution",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "2510.05211-e2",
+      "claim": "Theorem 1 gives the maximal logical dimension for a class of weight-6 self-dual BB codes, with the proof formulated using Laurent polynomial ideals and a Buchberger-algorithm calculation.",
+      "page": 3,
+      "theorem": "Theorem 1",
+      "equations": ["(9)", "(10)"],
+      "figure": null,
+      "table": null,
+      "locator": "Weight-6 code analysis",
+      "evidence_type": "theorem_and_proof",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "2510.05211-e3",
+      "claim": "Tables I and II enumerate optimal weight-8 self-dual BB codes up to n=200 and report exact distances computed by integer programming; twisted-torus choices can realize the same stabilizer polynomial with different code parameters.",
+      "page": 2,
+      "figures": ["Figure 1"],
+      "tables": ["Table I", "Table II"],
+      "equation": null,
+      "locator": "Enumerated code tables",
+      "evidence_type": "tables_and_layout",
+      "confidence": 0.97
+    }
+  ]
+}

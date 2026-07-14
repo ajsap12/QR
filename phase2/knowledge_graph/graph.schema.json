@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "QEC Knowledge Graph",
+  "type": "object",
+  "required": ["version", "generated_on", "scientific_status", "nodes", "edges"],
+  "properties": {
+    "version": {"type": "string"},
+    "generated_on": {"type": "string", "format": "date"},
+    "scientific_status": {"enum": ["provisional", "partially_reviewed", "reviewed"]},
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "label"],
+        "properties": {
+          "id": {"type": "string"},
+          "type": {"enum": ["paper", "code_family", "decoder", "noise_model", "concept", "result", "evidence_object"]},
+          "label": {"type": "string"},
+          "properties": {"type": "object"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "source", "target", "type", "source_paper_id", "evidence_file", "evidence_ids", "review_status", "confidence"],
+        "properties": {
+          "id": {"type": "string"},
+          "source": {"type": "string"},
+          "target": {"type": "string"},
+          "type": {"enum": ["studies", "uses_decoder", "evaluates_under", "supports", "compares_with", "extends", "targets", "implements", "has_evidence"]},
+          "source_paper_id": {"type": "string"},
+          "evidence_file": {"type": "string"},
+          "evidence_ids": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+          "review_status": {"enum": ["provisional", "human_reviewed", "rejected"]},
+          "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+          "notes": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

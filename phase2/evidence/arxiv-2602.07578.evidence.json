@@ -1,0 +1,40 @@
+{
+  "paper_id": "arxiv-2602.07578",
+  "source_pdf": "https://arxiv.org/pdf/2602.07578",
+  "review_status": "machine_extracted_requires_human_review",
+  "evidence": [
+    {
+      "evidence_id": "2602.07578-e1",
+      "claim": "The evaluated BB-code family uses a fixed polynomial pair A(x,y)=x^3+y+y^2 and B(x,y)=y^3+x+x^2 across [[72,12,6]], [[108,8,10]], and [[144,12,12]] instances, keeping local check geometry and weight fixed while varying lattice size and distance.",
+      "page": 4,
+      "equation": "(1)",
+      "figure": "Figure 3",
+      "table": "Table I",
+      "locator": "Section III.A, code specification and circuit build",
+      "evidence_type": "table_equation_and_figure",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "2602.07578-e2",
+      "claim": "The benchmark runs use syndrome cycles equal to code distance, compare 2EC and 4EC schedules, sweep erasure rate e with p=0.1e and q=e, and decode using BP+OSD with fixed settings after Stim simulation.",
+      "page": 6,
+      "equation": null,
+      "figure": null,
+      "table": "Table I",
+      "locator": "Section IV.A.1, benchmarks for evaluation",
+      "evidence_type": "experimental_protocol",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "2602.07578-e3",
+      "claim": "At low erasure rate, increasing distance from 6 to 10 reduces per-round logical error by roughly 26-34x, while 10 to 12 gives a smaller 2.0-2.7x reduction; 4EC substantially narrows the Approx-versus-Exact engine gap.",
+      "page": 8,
+      "equations": ["(11a)", "(12)", "(13)", "(14)"],
+      "figures": ["Figure 6", "Figure 7", "Figure 8"],
+      "table": null,
+      "locator": "Sections IV.B and V",
+      "evidence_type": "figures_and_quantitative_result",
+      "confidence": 0.98
+    }
+  ]
+}
