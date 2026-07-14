@@ -109,11 +109,11 @@ def main() -> None:
             "bp_method": "product_sum",
             "schedule": "parallel",
             "llrmax": 25,
-            "fallback": false
+            "fallback": False,
         },
         "case_count": len(captured),
         "cases": captured,
-        "warning": "The public ldpc decoder may reset internal messages across decode calls; traces therefore capture package behavior, not yet proven paper-faithful stateful BP."
+        "warning": "The public ldpc decoder may reset internal messages across decode calls; traces therefore capture package behavior, not yet proven paper-faithful stateful BP.",
     }
     output = Path(__file__).with_name("bpgd_trace_capture.json")
     output.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
