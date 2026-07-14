@@ -15,12 +15,18 @@ on:
         description: Maximum retained cases per code/sector/rate/category stratum
         required: false
         default: '500'
+      gate3_max_cases:
+        description: Maximum held-out hard cases for Gate 3
+        required: false
+        default: '1000'
   push:
     branches:
       - phase-3b-4a-audit-smoke
     paths:
       - 'phase4/bb/build_expanded_failure_corpus.py'
       - 'phase4/bb/analyze_expanded_failure_corpus.py'
+      - 'phase4/bb/run_gate3_randomized.py'
+      - 'phase4/bb/analyze_gate3_randomized.py'
       - '.github/workflows/expanded-failure-corpus.yml'
 
 permissions:
@@ -33,7 +39,7 @@ concurrency:
 jobs:
   build-corpus:
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    timeout-minutes: 240
     steps:
       - uses: actions/checkout@v4
         with:
@@ -52,7 +58,13 @@ jobs:
       - name: Validate and summarize corpus
         working-directory: phase4/bb
         run: python analyze_expanded_failure_corpus.py
-      - name: Upload corpus artifacts
+      - name: Run Gate 3 matched logical validation
+        working-directory: phase4/bb
+        run: python run_gate3_randomized.py --split test --max-cases "${{ inputs.gate3_max_cases || '1000' }}" --rev-depth 2 --restart-attempts 2 --beam-width 2
+      - name: Analyze Gate 3 results
+        working-directory: phase4/bb
+        run: python analyze_gate3_randomized.py
+      - name: Upload corpus and Gate 3 artifacts
         uses: actions/upload-artifact@v4
         with:
           name: expanded-bb-failure-corpus
@@ -61,5 +73,8 @@ jobs:
             phase4/bb/expanded_failure_corpus_metadata.json
             phase4/bb/expanded_failure_corpus_analysis.json
             phase4/bb/EXPANDED_FAILURE_CORPUS_ANALYSIS.md
+            phase4/bb/gate3_randomized_results.json
+            phase4/bb/gate3_randomized_analysis.json
+            phase4/bb/GATE3_RANDOMIZED_DASHBOARD.md
           if-no-files-found: error
           retention-days: 30
