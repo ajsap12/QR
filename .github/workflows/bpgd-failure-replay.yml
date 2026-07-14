@@ -1,0 +1,32 @@
+name: BPGD Failure Replay
+
+on:
+  push:
+    branches:
+      - phase-3b-4a-audit-smoke
+    paths:
+      - 'phase4/bb/**'
+      - '.github/workflows/bpgd-failure-replay.yml'
+  workflow_dispatch:
+
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install dependencies
+        run: pip install numpy numba
+      - name: Regenerate failure corpus and replay variants
+        working-directory: phase4/bb
+        run: python run_regenerate_and_replay_failures.py
+      - name: Upload replay artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: bpgd-failure-replay
+          path: |
+            phase4/bb/stateful_failure_corpus.json
+            phase4/bb/exact_failure_variant_results.json
