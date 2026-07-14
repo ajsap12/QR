@@ -38,6 +38,9 @@ jobs:
       - name: Analyze semantic replay results
         working-directory: phase4/bb
         run: python analyze_semantic_failure_replay.py
+      - name: Diagnose invariant BPGD failures
+        working-directory: phase4/bb
+        run: python analyze_invariant_bpgd_failures.py
       - name: Upload replay artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -48,4 +51,6 @@ jobs:
             phase4/bb/semantic_failure_replay_results.json
             phase4/bb/semantic_failure_replay_analysis.json
             phase4/bb/SEMANTIC_FAILURE_REPLAY_ANALYSIS.md
+            phase4/bb/invariant_bpgd_failure_diagnostics.json
+            phase4/bb/INVARIANT_BPGD_FAILURE_DIAGNOSTICS.md
           if-no-files-found: error
