@@ -37,18 +37,23 @@ jobs:
       - name: Replay semantic decoder variants on exact failures
         working-directory: phase4/bb
         run: python run_semantic_failure_replay.py
-      - name: Commit generated replay records
+      - name: Analyze semantic replay results
+        working-directory: phase4/bb
+        run: python analyze_semantic_failure_replay.py
+      - name: Commit generated replay records and analysis
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add \
             phase4/bb/stateful_failure_corpus.json \
             phase4/bb/exact_failure_variant_results.json \
-            phase4/bb/semantic_failure_replay_results.json
+            phase4/bb/semantic_failure_replay_results.json \
+            phase4/bb/semantic_failure_replay_analysis.json \
+            phase4/bb/SEMANTIC_FAILURE_REPLAY_ANALYSIS.md
           if git diff --cached --quiet; then
-            echo "Generated replay records are already current."
+            echo "Generated replay records and analysis are already current."
           else
-            git commit -m "Record exact BPGD semantic replay results [skip ci]"
+            git commit -m "Analyze exact BPGD semantic replay results [skip ci]"
             git push origin HEAD:phase-3b-4a-audit-smoke
           fi
       - name: Upload replay artifacts
@@ -59,3 +64,5 @@ jobs:
             phase4/bb/stateful_failure_corpus.json
             phase4/bb/exact_failure_variant_results.json
             phase4/bb/semantic_failure_replay_results.json
+            phase4/bb/semantic_failure_replay_analysis.json
+            phase4/bb/SEMANTIC_FAILURE_REPLAY_ANALYSIS.md
