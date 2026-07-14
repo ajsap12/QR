@@ -1,0 +1,41 @@
+{
+  "hypothesis_id": "H-001",
+  "title": "No universal diffusion dominance under matched BB-code conditions",
+  "status": "proposed_requires_review",
+  "source_gaps": ["G-001", "G-004", "G-005"],
+  "source_tensions": ["C-001", "C-003"],
+  "research_question": "When code instances, noise models, stopping rules, hardware, and total compute accounting are matched, does a diffusion decoder dominate BPGD and BP-OSD on both logical error rate and computational cost?",
+  "null_hypothesis": "At a fixed total-compute budget, diffusion decoding is not Pareto-superior to both BPGD and BP-OSD across the tested BB-code and noise regimes.",
+  "alternative_hypothesis": "At a fixed total-compute budget, diffusion decoding is Pareto-superior to both BPGD and BP-OSD across the predeclared BB-code and noise regimes.",
+  "predicted_outcome": "Diffusion may improve logical error rate in some regimes, but at least one classical baseline will match or outperform it on total lifecycle compute, latency, or robustness outside the training distribution.",
+  "independent_variables": [
+    "decoder family",
+    "BB code instance and distance",
+    "physical error rate",
+    "noise model",
+    "compute budget"
+  ],
+  "dependent_variables": [
+    "logical error rate",
+    "95% confidence interval",
+    "wall-clock latency per shot",
+    "peak memory",
+    "training and hyperparameter-search compute",
+    "inference energy or machine-hours",
+    "decoder failure/non-convergence rate"
+  ],
+  "controls": [
+    "identical parity-check matrices and syndrome samples",
+    "identical train/test split where learning is required",
+    "identical random-seed registry",
+    "same hardware class or normalized machine-hour accounting",
+    "predeclared stopping and timeout rules"
+  ],
+  "falsification_conditions": [
+    "The diffusion decoder is statistically Pareto-superior to both baselines across every predeclared code/noise regime after total-compute accounting.",
+    "The predicted classical advantage disappears under independent replication."
+  ],
+  "acceptance_rule": "Treat the hypothesis as provisionally supported only if no diffusion configuration dominates both classical baselines across all primary metrics and the result replicates with independent seeds.",
+  "evidence_status": "provisional_until_phase2_locator_review",
+  "required_experiment": "E-001"
+}
