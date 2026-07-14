@@ -1,0 +1,62 @@
+{
+  "experiment": "paired_bp_osd_vs_provisional_bpgd",
+  "executed_on": "2026-07-14",
+  "execution_environment": "ChatGPT Python runtime; CPU; Python 3.13; ldpc==2.4.0",
+  "noise_model": "independent binary X-error code-capacity model",
+  "physical_error_rate": 0.04,
+  "shots_per_code": 300,
+  "sample_pairing": "Both decoders received the exact same error and syndrome sample on every shot.",
+  "records": [
+    {
+      "code": "[[72,12,6]]",
+      "n": 72,
+      "k": 12,
+      "seed": 20260720,
+      "bposd_logical_failures": 23,
+      "bpgd_logical_failures": 22,
+      "bposd_logical_error_rate": 0.07666666666666666,
+      "bpgd_logical_error_rate": 0.07333333333333333,
+      "bposd_syndrome_failures": 0,
+      "bpgd_syndrome_failures": 0,
+      "bpgd_total_decimations": 35,
+      "bpgd_mean_decimations": 0.11666666666666667,
+      "elapsed_seconds": 0.642822625000008
+    },
+    {
+      "code": "[[108,8,10]]",
+      "n": 108,
+      "k": 8,
+      "seed": 20260723,
+      "bposd_logical_failures": 6,
+      "bpgd_logical_failures": 2,
+      "bposd_logical_error_rate": 0.02,
+      "bpgd_logical_error_rate": 0.006666666666666667,
+      "bposd_syndrome_failures": 0,
+      "bpgd_syndrome_failures": 3,
+      "bpgd_total_decimations": 544,
+      "bpgd_mean_decimations": 1.8133333333333332,
+      "elapsed_seconds": 1.110747282000375
+    },
+    {
+      "code": "[[144,12,12]]",
+      "n": 144,
+      "k": 12,
+      "seed": 20260726,
+      "bposd_logical_failures": 0,
+      "bpgd_logical_failures": 1,
+      "bposd_logical_error_rate": 0.0,
+      "bpgd_logical_error_rate": 0.0033333333333333335,
+      "bposd_syndrome_failures": 0,
+      "bpgd_syndrome_failures": 0,
+      "bpgd_total_decimations": 197,
+      "bpgd_mean_decimations": 0.6566666666666666,
+      "elapsed_seconds": 1.495376202999978
+    }
+  ],
+  "interpretation": [
+    "The paired runner and BPGD decimation path execute successfully on all three published BB matrices.",
+    "At this small sample size neither decoder shows uniform dominance across all three codes.",
+    "The three BPGD syndrome failures on the 108-qubit code are implementation or stopping-rule issues that must be resolved before any performance claim."
+  ],
+  "warning": "The BPGD implementation is independent and provisional. These results are integration evidence only, not a faithful reproduction of the paper or a publication-grade decoder comparison."
+}
