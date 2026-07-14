@@ -1,0 +1,41 @@
+{
+  "hypothesis_id": "H-002",
+  "title": "Self-duality imposes a measurable BB-code performance tradeoff",
+  "status": "proposed_requires_review",
+  "source_gaps": ["G-002", "G-003"],
+  "source_tensions": ["C-004"],
+  "research_question": "Does imposing self-duality and transversal-Clifford structure on comparable BB-code families reduce achievable rate, distance, layout quality, or decoder performance?",
+  "null_hypothesis": "After matching block length and stabilizer-weight constraints, self-dual BB codes show no practically significant degradation in the predeclared structural and decoding metrics relative to unconstrained coprime BB codes.",
+  "alternative_hypothesis": "After matching block length and stabilizer-weight constraints, self-dual BB codes exhibit a measurable tradeoff in at least one primary structural or decoding metric, offset by logical-gate advantages.",
+  "predicted_outcome": "Self-duality will shrink the feasible search space and produce a nonzero tradeoff in rate, distance, or decoder performance for at least some block-length ranges.",
+  "independent_variables": [
+    "self-duality constraint",
+    "block length",
+    "stabilizer-weight cap",
+    "code-search budget",
+    "decoder and noise model"
+  ],
+  "dependent_variables": [
+    "encoding rate",
+    "minimum distance or certified lower bound",
+    "stabilizer weight",
+    "layout/connectivity metrics",
+    "logical error rate",
+    "logical Clifford gate availability",
+    "search runtime"
+  ],
+  "controls": [
+    "same block-length bins",
+    "same polynomial/search budget",
+    "same distance-estimation method",
+    "same decoder and noise samples",
+    "same hardware and timeout policy"
+  ],
+  "falsification_conditions": [
+    "Self-dual families match unconstrained families within predeclared equivalence margins on all structural and decoding metrics while preserving gate benefits.",
+    "Observed tradeoffs fail to replicate on an independently generated code panel."
+  ],
+  "acceptance_rule": "Provisionally support only when at least one predeclared metric shows a statistically or operationally meaningful tradeoff across two independent code panels.",
+  "evidence_status": "provisional_until_phase2_locator_review",
+  "required_experiment": "E-002"
+}
