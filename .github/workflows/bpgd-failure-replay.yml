@@ -53,6 +53,12 @@ jobs:
       - name: Analyze reversible BPGD gate-one result
         working-directory: phase4/bb
         run: python analyze_reversible_failure_replay.py
+      - name: Run matched restart and narrow-beam controls
+        working-directory: phase4/bb
+        run: python run_gate2_controls.py
+      - name: Build Gate 2 preliminary dashboard
+        working-directory: phase4/bb
+        run: python analyze_gate2_controls.py
       - name: Upload replay artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -68,4 +74,7 @@ jobs:
             phase4/bb/reversible_bpgd_results.json
             phase4/bb/reversible_bpgd_gate_analysis.json
             phase4/bb/REVERSIBLE_BPGD_GATE_ANALYSIS.md
+            phase4/bb/gate2_control_results.json
+            phase4/bb/gate2_control_analysis.json
+            phase4/bb/GATE2_CONTROL_DASHBOARD.md
           if-no-files-found: error
