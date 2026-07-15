@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import argparse
 import json
-from collections import Counter
 from pathlib import Path
 
 import numpy as np
@@ -77,15 +76,15 @@ def run_reversible(checks: np.ndarray, syndrome: np.ndarray, p: float, depth: in
             max_total_decimations_factor=2.0,
         ),
     )
-    correction, diagnostics = decoder.decode(syndrome)
-    correction = np.asarray(correction, dtype=np.uint8)
+    correction = np.asarray(decoder.decode(syndrome), dtype=np.uint8)
+    diagnostics = decoder.last_diagnostics
     state_bytes = int(checks.shape[1] * 4 + checks.shape[0] + checks.size // 8)
     return correction, {
         "converged": bool(diagnostics.converged),
         "residual_syndrome_weight": int(diagnostics.residual_syndrome_weight),
         "decimations": int(diagnostics.total_decimations),
         "operation_count": int(diagnostics.total_decimations),
-        "backtracks": int(diagnostics.backtracks),
+        "backtracks": int(diagnostics.backtracks_used),
         "explored_paths": int(diagnostics.explored_paths),
         "peak_states": 1,
         "peak_checkpoint_bytes": int((depth + 1) * state_bytes),
