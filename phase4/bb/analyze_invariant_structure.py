@@ -58,9 +58,20 @@ def count_four_cycles(checks: np.ndarray, variables: list[int]) -> int:
     return count
 
 
+def _as_float_or_zero(value: object) -> float:
+    """Return a finite float for optional diagnostic values."""
+    if value is None:
+        return 0.0
+    try:
+        result = float(value)
+    except (TypeError, ValueError):
+        return 0.0
+    return result if np.isfinite(result) else 0.0
+
+
 def trajectory_summary(trajectory: list[dict[str, object]]) -> dict[str, object]:
     residuals = [int(step["residual_syndrome_weight"]) for step in trajectory]
-    gaps = [float(step.get("reliability_gap", 0.0)) for step in trajectory]
+    gaps = [_as_float_or_zero(step.get("reliability_gap")) for step in trajectory]
     return {
         "rounds": len(trajectory),
         "initial_residual": residuals[0] if residuals else None,
@@ -161,9 +172,11 @@ def main() -> None:
         ]
         for schedule, data in case["schedules"].items():
             t = data["trajectory"]
+            median_gap = t["median_reliability_gap"]
+            median_gap_text = f"{median_gap:.6g}" if median_gap is not None else "n/a"
             lines.append(
                 f'| {schedule} | {t["rounds"]} | {t["initial_residual"]} | {t["minimum_residual"]} | '
-                f'{t["final_residual"]} | {t["non_improving_steps"]} | {t["median_reliability_gap"]:.6g} |'
+                f'{t["final_residual"]} | {t["non_improving_steps"]} | {median_gap_text} |'
             )
         lines.append("")
     lines += ["## Next tests", ""] + [f'- {item}' for item in analysis["next_tests"]]
