@@ -1,25 +1,7 @@
-# Gate 3 rerun trigger: RevBPGD decode API fix validated
 name: Expanded BB Failure Corpus
 
 on:
   workflow_dispatch:
-    inputs:
-      shots:
-        description: Shots per code/sector/rate
-        required: false
-        default: '1000'
-      rates:
-        description: Comma-separated physical error rates
-        required: false
-        default: '0.02,0.03,0.04'
-      max_cases:
-        description: Maximum retained cases per code/sector/rate/category stratum
-        required: false
-        default: '500'
-      gate3_max_cases:
-        description: Maximum held-out hard cases for Gate 3
-        required: false
-        default: '1000'
   push:
     branches:
       - phase-3b-4a-audit-smoke
@@ -39,32 +21,43 @@ concurrency:
 
 jobs:
   build-corpus:
+    name: Build corpus and run Gate 3
     runs-on: ubuntu-latest
     timeout-minutes: 240
+
     steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: phase-3b-4a-audit-smoke
-      - uses: actions/setup-python@v5
+      - name: Checkout working branch
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+
       - name: Install dependencies
-        run: python -m pip install --upgrade pip && python -m pip install numpy numba
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy numba
+
       - name: Build expanded corpus
         working-directory: phase4/bb
         env:
-          QR_CORPUS_SHOTS: ${{ inputs.shots || '1000' }}
-          QR_CORPUS_MAX_CASES: ${{ inputs.max_cases || '500' }}
-        run: python build_expanded_failure_corpus.py --rates "${{ inputs.rates || '0.02,0.03,0.04' }}"
+          QR_CORPUS_SHOTS: '1000'
+          QR_CORPUS_MAX_CASES: '500'
+        run: python build_expanded_failure_corpus.py --rates '0.02,0.03,0.04'
+
       - name: Validate and summarize corpus
         working-directory: phase4/bb
         run: python analyze_expanded_failure_corpus.py
+
       - name: Run Gate 3 matched logical validation
         working-directory: phase4/bb
-        run: python run_gate3_randomized.py --split test --max-cases "${{ inputs.gate3_max_cases || '1000' }}" --rev-depth 2 --restart-attempts 2 --beam-width 2
+        run: python run_gate3_randomized.py --split test --max-cases 1000 --rev-depth 2 --restart-attempts 2 --beam-width 2
+
       - name: Analyze Gate 3 results
         working-directory: phase4/bb
         run: python analyze_gate3_randomized.py
+
       - name: Upload corpus and Gate 3 artifacts
         uses: actions/upload-artifact@v4
         with:
