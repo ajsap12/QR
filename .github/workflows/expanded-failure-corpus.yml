@@ -10,6 +10,8 @@ on:
       - 'phase4/bb/analyze_expanded_failure_corpus.py'
       - 'phase4/bb/run_gate3_randomized.py'
       - 'phase4/bb/analyze_gate3_randomized.py'
+      - 'phase4/bb/run_schedule_randomized_validation.py'
+      - 'phase4/bb/analyze_schedule_randomized_validation.py'
       - '.github/workflows/expanded-failure-corpus.yml'
 
 permissions:
@@ -58,6 +60,14 @@ jobs:
         working-directory: phase4/bb
         run: python analyze_gate3_randomized.py
 
+      - name: Run held-out serial-vs-parallel validation
+        working-directory: phase4/bb
+        run: python run_schedule_randomized_validation.py --split test --max-cases 1000
+
+      - name: Analyze serial scheduling validation
+        working-directory: phase4/bb
+        run: python analyze_schedule_randomized_validation.py
+
       - name: Upload corpus and Gate 3 artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -70,5 +80,8 @@ jobs:
             phase4/bb/gate3_randomized_results.json
             phase4/bb/gate3_randomized_analysis.json
             phase4/bb/GATE3_RANDOMIZED_DASHBOARD.md
+            phase4/bb/schedule_randomized_validation.json
+            phase4/bb/schedule_randomized_analysis.json
+            phase4/bb/SCHEDULE_RANDOMIZED_ANALYSIS.md
           if-no-files-found: error
           retention-days: 30
