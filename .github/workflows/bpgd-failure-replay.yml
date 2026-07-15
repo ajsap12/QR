@@ -47,6 +47,9 @@ jobs:
       - name: Diagnose invariant BPGD failures
         working-directory: phase4/bb
         run: python analyze_invariant_bpgd_failures.py
+      - name: Analyze invariant failure structure
+        working-directory: phase4/bb
+        run: python analyze_invariant_structure.py
       - name: Run reversible BPGD gate-one replay
         working-directory: phase4/bb
         run: python run_reversible_failure_replay.py
@@ -59,6 +62,9 @@ jobs:
       - name: Build Gate 2 preliminary dashboard
         working-directory: phase4/bb
         run: python analyze_gate2_controls.py
+      - name: Analyze restart-only trajectory divergence
+        working-directory: phase4/bb
+        run: python analyze_restart_divergence.py
       - name: Upload replay artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -71,10 +77,14 @@ jobs:
             phase4/bb/SEMANTIC_FAILURE_REPLAY_ANALYSIS.md
             phase4/bb/invariant_bpgd_failure_diagnostics.json
             phase4/bb/INVARIANT_BPGD_FAILURE_DIAGNOSTICS.md
+            phase4/bb/invariant_failure_structure.json
+            phase4/bb/INVARIANT_FAILURE_STRUCTURE.md
             phase4/bb/reversible_bpgd_results.json
             phase4/bb/reversible_bpgd_gate_analysis.json
             phase4/bb/REVERSIBLE_BPGD_GATE_ANALYSIS.md
             phase4/bb/gate2_control_results.json
             phase4/bb/gate2_control_analysis.json
             phase4/bb/GATE2_CONTROL_DASHBOARD.md
+            phase4/bb/restart_divergence_analysis.json
+            phase4/bb/RESTART_DIVERGENCE_ANALYSIS.md
           if-no-files-found: error
