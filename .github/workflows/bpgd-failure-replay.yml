@@ -44,6 +44,12 @@ jobs:
       - name: Analyze semantic replay results
         working-directory: phase4/bb
         run: python analyze_semantic_failure_replay.py
+      - name: Capture serial and parallel trajectories
+        working-directory: phase4/bb
+        run: python run_schedule_trajectory_analysis.py
+      - name: Classify serial and parallel divergence
+        working-directory: phase4/bb
+        run: python analyze_schedule_trajectory.py
       - name: Diagnose invariant BPGD failures
         working-directory: phase4/bb
         run: python analyze_invariant_bpgd_failures.py
@@ -75,6 +81,9 @@ jobs:
             phase4/bb/semantic_failure_replay_results.json
             phase4/bb/semantic_failure_replay_analysis.json
             phase4/bb/SEMANTIC_FAILURE_REPLAY_ANALYSIS.md
+            phase4/bb/schedule_trajectory_results.json
+            phase4/bb/schedule_trajectory_analysis.json
+            phase4/bb/SCHEDULE_TRAJECTORY_ANALYSIS.md
             phase4/bb/invariant_bpgd_failure_diagnostics.json
             phase4/bb/INVARIANT_BPGD_FAILURE_DIAGNOSTICS.md
             phase4/bb/invariant_failure_structure.json
