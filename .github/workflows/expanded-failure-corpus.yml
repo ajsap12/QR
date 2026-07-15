@@ -1,3 +1,4 @@
+# Gate 3 rerun trigger: RevBPGD decode API fix validated
 name: Expanded BB Failure Corpus
 
 on:
