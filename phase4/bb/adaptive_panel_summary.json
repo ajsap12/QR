@@ -1,0 +1,40 @@
+{
+  "experiment": "adaptive_multi_code_multi_sector_bp_osd_panel",
+  "executed_on": "2026-07-14",
+  "execution_environment": "ChatGPT Python runtime; CPU; Python 3.13; ldpc package",
+  "noise_model": "independent binary code-capacity noise, evaluated separately in X and Z sectors",
+  "decoder": "ldpc.BpOsdDecoder via BpOsdAdapter",
+  "adaptive_rule": "100-shot batches until at least 50 logical failures or 2000 shots",
+  "codes_source": "Bravyi et al., Table 3, arXiv:2308.07915",
+  "records": [
+    {"code":"72","n":72,"k":12,"sector":"X","p":0.02,"shots":2000,"logical_failures":20,"syndrome_failures":0,"ler":0.01,"ci":[0.006482767876552687,0.015395938459075187],"elapsed":0.052230907999728515},
+    {"code":"72","n":72,"k":12,"sector":"X","p":0.04,"shots":800,"logical_failures":57,"syndrome_failures":0,"ler":0.07125,"ci":[0.055398305362103356,0.09119958098426384],"elapsed":0.028588864000084868},
+    {"code":"72","n":72,"k":12,"sector":"X","p":0.06,"shots":200,"logical_failures":52,"syndrome_failures":0,"ler":0.26,"ci":[0.20413830063574687,0.32490745602534116],"elapsed":0.012470551000205887},
+    {"code":"72","n":72,"k":12,"sector":"Z","p":0.02,"shots":2000,"logical_failures":24,"syndrome_failures":0,"ler":0.012,"ci":[0.008077154276022635,0.017793883870480226],"elapsed":0.04997941799956607},
+    {"code":"72","n":72,"k":12,"sector":"Z","p":0.04,"shots":700,"logical_failures":54,"syndrome_failures":0,"ler":0.07714285714285714,"ci":[0.059604324056733035,0.09929716919728414],"elapsed":0.023570296999878337},
+    {"code":"72","n":72,"k":12,"sector":"Z","p":0.06,"shots":300,"logical_failures":69,"syndrome_failures":0,"ler":0.23,"ci":[0.18597181807303015,0.28085538638822466],"elapsed":0.01679561399987506},
+    {"code":"108","n":108,"k":8,"sector":"X","p":0.02,"shots":2000,"logical_failures":1,"syndrome_failures":0,"ler":0.0005,"ci":[0.00008826773070546787,0.0028268625032662133],"elapsed":0.07629965500018443},
+    {"code":"108","n":108,"k":8,"sector":"X","p":0.04,"shots":2000,"logical_failures":33,"syndrome_failures":0,"ler":0.0165,"ci":[0.01177282360725337,0.023080961113718216],"elapsed":0.11105361399995672},
+    {"code":"108","n":108,"k":8,"sector":"X","p":0.06,"shots":400,"logical_failures":59,"syndrome_failures":0,"ler":0.1475,"ci":[0.1161060733583933,0.18560009414728573],"elapsed":0.05782088700016175},
+    {"code":"108","n":108,"k":8,"sector":"Z","p":0.02,"shots":2000,"logical_failures":1,"syndrome_failures":0,"ler":0.0005,"ci":[0.00008826773070546787,0.0028268625032662133],"elapsed":0.07670349799991527},
+    {"code":"108","n":108,"k":8,"sector":"Z","p":0.04,"shots":2000,"logical_failures":38,"syndrome_failures":0,"ler":0.019,"ci":[0.013873784918301425,0.025970414566263898],"elapsed":0.10971247899988157},
+    {"code":"108","n":108,"k":8,"sector":"Z","p":0.06,"shots":600,"logical_failures":57,"syndrome_failures":0,"ler":0.095,"ci":[0.07404809033012902,0.12110488749096857],"elapsed":0.07194556800004648},
+    {"code":"144","n":144,"k":12,"sector":"X","p":0.02,"shots":2000,"logical_failures":0,"syndrome_failures":0,"ler":0.0,"ci":[0.0,0.001917047281252934],"elapsed":0.12066330000016023},
+    {"code":"144","n":144,"k":12,"sector":"X","p":0.04,"shots":2000,"logical_failures":23,"syndrome_failures":0,"ler":0.0115,"ci":[0.007675227286212753,0.01719772790757136],"elapsed":0.13837894500011316},
+    {"code":"144","n":144,"k":12,"sector":"X","p":0.06,"shots":600,"logical_failures":59,"syndrome_failures":0,"ler":0.09833333333333333,"ci":[0.0770017451951421,0.12477548795253081],"elapsed":0.10693666799988932},
+    {"code":"144","n":144,"k":12,"sector":"Z","p":0.02,"shots":2000,"logical_failures":0,"syndrome_failures":0,"ler":0.0,"ci":[0.0,0.001917047281252934],"elapsed":0.0934293410000464},
+    {"code":"144","n":144,"k":12,"sector":"Z","p":0.04,"shots":2000,"logical_failures":26,"syndrome_failures":0,"ler":0.013,"ci":[0.008886895534737305,0.01898030851720305],"elapsed":0.15235281900004338},
+    {"code":"144","n":144,"k":12,"sector":"Z","p":0.06,"shots":500,"logical_failures":57,"syndrome_failures":0,"ler":0.114,"ci":[0.08903690099400285,0.1448490898423155],"elapsed":0.08403651699973125}
+  ],
+  "summary": {
+    "total_records": 18,
+    "total_shots": 27000,
+    "total_syndrome_failures": 0,
+    "observations": [
+      "At p=0.02, the larger 108- and 144-qubit published codes showed substantially lower estimated LER than the 72-qubit code in this bounded sample.",
+      "X- and Z-sector estimates were broadly similar but not identical, as expected from finite sampling and matrix orientation.",
+      "At p=0.06 all three codes produced enough logical failures to hit the adaptive failure target quickly."
+    ]
+  },
+  "warning": "Bounded integration panel only; not a threshold estimate, not depolarizing noise, and not a BPGD/diffusion comparison."
+}

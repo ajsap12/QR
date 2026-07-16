@@ -1,0 +1,581 @@
+{
+  "experiment": "exact_failure_variant_replay",
+  "input_case_count": 17,
+  "variants": [
+    {
+      "variant": "baseline_T100_clip50",
+      "T": 100,
+      "clip": 50.0,
+      "resolved": 0,
+      "unresolved": 17,
+      "unresolved_cases": [
+        {
+          "syndrome_sha256": "83cc513e8352f861d464fc57dee727be48466bfc45929f6b528cfe5a79fef44a",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 36,
+          "rounds": 108,
+          "residual_syndrome_weight": 2
+        },
+        {
+          "syndrome_sha256": "bcc41e95e64626fa10ec9313a47460542b4edbefd4e1c4f0a2fab42de9caac5a",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 161,
+          "rounds": 108,
+          "residual_syndrome_weight": 10
+        },
+        {
+          "syndrome_sha256": "125f599ba074044579affa290d43cc6888e5f73dc475afe76cb5c2b5890781e8",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 277,
+          "rounds": 108,
+          "residual_syndrome_weight": 10
+        },
+        {
+          "syndrome_sha256": "3dd34e1acd75c8cac413092aa536aeb8881ed80230fea58434cf5d796ab284e9",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 512,
+          "rounds": 108,
+          "residual_syndrome_weight": 3
+        },
+        {
+          "syndrome_sha256": "72b2335ef825f41634b26a858b0f2e063bcf623e127cf2794022d64b5fa8021e",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 779,
+          "rounds": 108,
+          "residual_syndrome_weight": 12
+        },
+        {
+          "syndrome_sha256": "c709fd46f5d1fb320bbf0beeff31fb767598189f454027c70a0a82f41da1ea57",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 843,
+          "rounds": 108,
+          "residual_syndrome_weight": 12
+        },
+        {
+          "syndrome_sha256": "e4a1f65d4d5dbd786189eaa81ac750bc3c416354b9835e976dfc5e3ad4f8ec9a",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 1548,
+          "rounds": 108,
+          "residual_syndrome_weight": 4
+        },
+        {
+          "syndrome_sha256": "6aa3b1a434f740460fca19b9c737462a7751bcadc58c9bf1e5b13ebaa272cfe5",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 1770,
+          "rounds": 108,
+          "residual_syndrome_weight": 6
+        },
+        {
+          "syndrome_sha256": "bf193461787537b01c0a7046138a9bfca9f18568effc08ee17e6a0aed7568389",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 1970,
+          "rounds": 108,
+          "residual_syndrome_weight": 2
+        },
+        {
+          "syndrome_sha256": "f994f5c8a741d03a18da899a5820766f2dc0fb7817b6319f85b0e316e00c425c",
+          "code": "[[108,8,10]]",
+          "sector": "Z",
+          "shot_index": 554,
+          "rounds": 108,
+          "residual_syndrome_weight": 8
+        },
+        {
+          "syndrome_sha256": "a5b330dccc82a639430c4cb8b03612fd24947a530660f2aab1d9d7acfee2ab46",
+          "code": "[[108,8,10]]",
+          "sector": "Z",
+          "shot_index": 589,
+          "rounds": 108,
+          "residual_syndrome_weight": 5
+        },
+        {
+          "syndrome_sha256": "b6397d571bc3d36f9baba3c531c03b750eab1fcbb832a1fa17d129ee6c15f07c",
+          "code": "[[108,8,10]]",
+          "sector": "Z",
+          "shot_index": 716,
+          "rounds": 108,
+          "residual_syndrome_weight": 4
+        },
+        {
+          "syndrome_sha256": "b83a885c73364d9edbcbad61eedbd416dcb14d1985ad1586526ca5185d79862e",
+          "code": "[[108,8,10]]",
+          "sector": "Z",
+          "shot_index": 946,
+          "rounds": 108,
+          "residual_syndrome_weight": 6
+        },
+        {
+          "syndrome_sha256": "7dae629772c8966999d85bcd341b66cef3dc04d7238b0d88278152256a32740e",
+          "code": "[[108,8,10]]",
+          "sector": "Z",
+          "shot_index": 1277,
+          "rounds": 108,
+          "residual_syndrome_weight": 3
+        },
+        {
+          "syndrome_sha256": "d3c5a77227b03f3dd243de72a6f4fd46d4de5c488c521a16e3b9852fc09c879b",
+          "code": "[[108,8,10]]",
+          "sector": "Z",
+          "shot_index": 1291,
+          "rounds": 108,
+          "residual_syndrome_weight": 6
+        },
+        {
+          "syndrome_sha256": "10b231200d1fd0e0330ca193eb691493206ffde98b23f74d40c60432dd672bd0",
+          "code": "[[108,8,10]]",
+          "sector": "Z",
+          "shot_index": 1875,
+          "rounds": 108,
+          "residual_syndrome_weight": 6
+        },
+        {
+          "syndrome_sha256": "545b3496fe44b5e21a2eadc9817f9140315b8bfd7bd9a16c11706b9ef7622c24",
+          "code": "[[144,12,12]]",
+          "sector": "X",
+          "shot_index": 1670,
+          "rounds": 144,
+          "residual_syndrome_weight": 10
+        }
+      ]
+    },
+    {
+      "variant": "T50_clip50",
+      "T": 50,
+      "clip": 50.0,
+      "resolved": 9,
+      "unresolved": 8,
+      "unresolved_cases": [
+        {
+          "syndrome_sha256": "83cc513e8352f861d464fc57dee727be48466bfc45929f6b528cfe5a79fef44a",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 36,
+          "rounds": 108,
+          "residual_syndrome_weight": 2
+        },
+        {
+          "syndrome_sha256": "bcc41e95e64626fa10ec9313a47460542b4edbefd4e1c4f0a2fab42de9caac5a",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 161,
+          "rounds": 108,
+          "residual_syndrome_weight": 13
+        },
+        {
+          "syndrome_sha256": "125f599ba074044579affa290d43cc6888e5f73dc475afe76cb5c2b5890781e8",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 277,
+          "rounds": 108,
+          "residual_syndrome_weight": 3
+        },
+        {
+          "syndrome_sha256": "3dd34e1acd75c8cac413092aa536aeb8881ed80230fea58434cf5d796ab284e9",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 512,
+          "rounds": 108,
+          "residual_syndrome_weight": 3
+        },
+        {
+          "syndrome_sha256": "c709fd46f5d1fb320bbf0beeff31fb767598189f454027c70a0a82f41da1ea57",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 843,
+          "rounds": 108,
+          "residual_syndrome_weight": 5
+        },
+        {
+          "syndrome_sha256": "bf193461787537b01c0a7046138a9bfca9f18568effc08ee17e6a0aed7568389",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 1970,
+          "rounds": 108,
+          "residual_syndrome_weight": 9
+        },
+        {
+          "syndrome_sha256": "7dae629772c8966999d85bcd341b66cef3dc04d7238b0d88278152256a32740e",
+          "code": "[[108,8,10]]",
+          "sector": "Z",
+          "shot_index": 1277,
+          "rounds": 108,
+          "residual_syndrome_weight": 4
+        },
+        {
+          "syndrome_sha256": "d3c5a77227b03f3dd243de72a6f4fd46d4de5c488c521a16e3b9852fc09c879b",
+          "code": "[[108,8,10]]",
+          "sector": "Z",
+          "shot_index": 1291,
+          "rounds": 108,
+          "residual_syndrome_weight": 3
+        }
+      ]
+    },
+    {
+      "variant": "T200_clip50",
+      "T": 200,
+      "clip": 50.0,
+      "resolved": 10,
+      "unresolved": 7,
+      "unresolved_cases": [
+        {
+          "syndrome_sha256": "83cc513e8352f861d464fc57dee727be48466bfc45929f6b528cfe5a79fef44a",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 36,
+          "rounds": 108,
+          "residual_syndrome_weight": 3
+        },
+        {
+          "syndrome_sha256": "bcc41e95e64626fa10ec9313a47460542b4edbefd4e1c4f0a2fab42de9caac5a",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 161,
+          "rounds": 108,
+          "residual_syndrome_weight": 6
+        },
+        {
+          "syndrome_sha256": "125f599ba074044579affa290d43cc6888e5f73dc475afe76cb5c2b5890781e8",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 277,
+          "rounds": 108,
+          "residual_syndrome_weight": 2
+        },
+        {
+          "syndrome_sha256": "c709fd46f5d1fb320bbf0beeff31fb767598189f454027c70a0a82f41da1ea57",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 843,
+          "rounds": 108,
+          "residual_syndrome_weight": 9
+        },
+        {
+          "syndrome_sha256": "6aa3b1a434f740460fca19b9c737462a7751bcadc58c9bf1e5b13ebaa272cfe5",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 1770,
+          "rounds": 108,
+          "residual_syndrome_weight": 5
+        },
+        {
+          "syndrome_sha256": "b83a885c73364d9edbcbad61eedbd416dcb14d1985ad1586526ca5185d79862e",
+          "code": "[[108,8,10]]",
+          "sector": "Z",
+          "shot_index": 946,
+          "rounds": 108,
+          "residual_syndrome_weight": 3
+        },
+        {
+          "syndrome_sha256": "d3c5a77227b03f3dd243de72a6f4fd46d4de5c488c521a16e3b9852fc09c879b",
+          "code": "[[108,8,10]]",
+          "sector": "Z",
+          "shot_index": 1291,
+          "rounds": 108,
+          "residual_syndrome_weight": 2
+        }
+      ]
+    },
+    {
+      "variant": "T100_clip25",
+      "T": 100,
+      "clip": 25.0,
+      "resolved": 10,
+      "unresolved": 7,
+      "unresolved_cases": [
+        {
+          "syndrome_sha256": "83cc513e8352f861d464fc57dee727be48466bfc45929f6b528cfe5a79fef44a",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 36,
+          "rounds": 108,
+          "residual_syndrome_weight": 2
+        },
+        {
+          "syndrome_sha256": "72b2335ef825f41634b26a858b0f2e063bcf623e127cf2794022d64b5fa8021e",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 779,
+          "rounds": 108,
+          "residual_syndrome_weight": 2
+        },
+        {
+          "syndrome_sha256": "e4a1f65d4d5dbd786189eaa81ac750bc3c416354b9835e976dfc5e3ad4f8ec9a",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 1548,
+          "rounds": 108,
+          "residual_syndrome_weight": 2
+        },
+        {
+          "syndrome_sha256": "6aa3b1a434f740460fca19b9c737462a7751bcadc58c9bf1e5b13ebaa272cfe5",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 1770,
+          "rounds": 108,
+          "residual_syndrome_weight": 2
+        },
+        {
+          "syndrome_sha256": "a5b330dccc82a639430c4cb8b03612fd24947a530660f2aab1d9d7acfee2ab46",
+          "code": "[[108,8,10]]",
+          "sector": "Z",
+          "shot_index": 589,
+          "rounds": 108,
+          "residual_syndrome_weight": 2
+        },
+        {
+          "syndrome_sha256": "b6397d571bc3d36f9baba3c531c03b750eab1fcbb832a1fa17d129ee6c15f07c",
+          "code": "[[108,8,10]]",
+          "sector": "Z",
+          "shot_index": 716,
+          "rounds": 108,
+          "residual_syndrome_weight": 2
+        },
+        {
+          "syndrome_sha256": "d3c5a77227b03f3dd243de72a6f4fd46d4de5c488c521a16e3b9852fc09c879b",
+          "code": "[[108,8,10]]",
+          "sector": "Z",
+          "shot_index": 1291,
+          "rounds": 108,
+          "residual_syndrome_weight": 2
+        }
+      ]
+    },
+    {
+      "variant": "T100_clip100",
+      "T": 100,
+      "clip": 100.0,
+      "resolved": 0,
+      "unresolved": 17,
+      "unresolved_cases": [
+        {
+          "syndrome_sha256": "83cc513e8352f861d464fc57dee727be48466bfc45929f6b528cfe5a79fef44a",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 36,
+          "rounds": 108,
+          "residual_syndrome_weight": 2
+        },
+        {
+          "syndrome_sha256": "bcc41e95e64626fa10ec9313a47460542b4edbefd4e1c4f0a2fab42de9caac5a",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 161,
+          "rounds": 108,
+          "residual_syndrome_weight": 10
+        },
+        {
+          "syndrome_sha256": "125f599ba074044579affa290d43cc6888e5f73dc475afe76cb5c2b5890781e8",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 277,
+          "rounds": 108,
+          "residual_syndrome_weight": 10
+        },
+        {
+          "syndrome_sha256": "3dd34e1acd75c8cac413092aa536aeb8881ed80230fea58434cf5d796ab284e9",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 512,
+          "rounds": 108,
+          "residual_syndrome_weight": 3
+        },
+        {
+          "syndrome_sha256": "72b2335ef825f41634b26a858b0f2e063bcf623e127cf2794022d64b5fa8021e",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 779,
+          "rounds": 108,
+          "residual_syndrome_weight": 12
+        },
+        {
+          "syndrome_sha256": "c709fd46f5d1fb320bbf0beeff31fb767598189f454027c70a0a82f41da1ea57",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 843,
+          "rounds": 108,
+          "residual_syndrome_weight": 12
+        },
+        {
+          "syndrome_sha256": "e4a1f65d4d5dbd786189eaa81ac750bc3c416354b9835e976dfc5e3ad4f8ec9a",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 1548,
+          "rounds": 108,
+          "residual_syndrome_weight": 4
+        },
+        {
+          "syndrome_sha256": "6aa3b1a434f740460fca19b9c737462a7751bcadc58c9bf1e5b13ebaa272cfe5",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 1770,
+          "rounds": 108,
+          "residual_syndrome_weight": 6
+        },
+        {
+          "syndrome_sha256": "bf193461787537b01c0a7046138a9bfca9f18568effc08ee17e6a0aed7568389",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 1970,
+          "rounds": 108,
+          "residual_syndrome_weight": 2
+        },
+        {
+          "syndrome_sha256": "f994f5c8a741d03a18da899a5820766f2dc0fb7817b6319f85b0e316e00c425c",
+          "code": "[[108,8,10]]",
+          "sector": "Z",
+          "shot_index": 554,
+          "rounds": 108,
+          "residual_syndrome_weight": 8
+        },
+        {
+          "syndrome_sha256": "a5b330dccc82a639430c4cb8b03612fd24947a530660f2aab1d9d7acfee2ab46",
+          "code": "[[108,8,10]]",
+          "sector": "Z",
+          "shot_index": 589,
+          "rounds": 108,
+          "residual_syndrome_weight": 5
+        },
+        {
+          "syndrome_sha256": "b6397d571bc3d36f9baba3c531c03b750eab1fcbb832a1fa17d129ee6c15f07c",
+          "code": "[[108,8,10]]",
+          "sector": "Z",
+          "shot_index": 716,
+          "rounds": 108,
+          "residual_syndrome_weight": 4
+        },
+        {
+          "syndrome_sha256": "b83a885c73364d9edbcbad61eedbd416dcb14d1985ad1586526ca5185d79862e",
+          "code": "[[108,8,10]]",
+          "sector": "Z",
+          "shot_index": 946,
+          "rounds": 108,
+          "residual_syndrome_weight": 6
+        },
+        {
+          "syndrome_sha256": "7dae629772c8966999d85bcd341b66cef3dc04d7238b0d88278152256a32740e",
+          "code": "[[108,8,10]]",
+          "sector": "Z",
+          "shot_index": 1277,
+          "rounds": 108,
+          "residual_syndrome_weight": 3
+        },
+        {
+          "syndrome_sha256": "d3c5a77227b03f3dd243de72a6f4fd46d4de5c488c521a16e3b9852fc09c879b",
+          "code": "[[108,8,10]]",
+          "sector": "Z",
+          "shot_index": 1291,
+          "rounds": 108,
+          "residual_syndrome_weight": 6
+        },
+        {
+          "syndrome_sha256": "10b231200d1fd0e0330ca193eb691493206ffde98b23f74d40c60432dd672bd0",
+          "code": "[[108,8,10]]",
+          "sector": "Z",
+          "shot_index": 1875,
+          "rounds": 108,
+          "residual_syndrome_weight": 6
+        },
+        {
+          "syndrome_sha256": "545b3496fe44b5e21a2eadc9817f9140315b8bfd7bd9a16c11706b9ef7622c24",
+          "code": "[[144,12,12]]",
+          "sector": "X",
+          "shot_index": 1670,
+          "rounds": 144,
+          "residual_syndrome_weight": 10
+        }
+      ]
+    },
+    {
+      "variant": "T200_clip25",
+      "T": 200,
+      "clip": 25.0,
+      "resolved": 8,
+      "unresolved": 9,
+      "unresolved_cases": [
+        {
+          "syndrome_sha256": "83cc513e8352f861d464fc57dee727be48466bfc45929f6b528cfe5a79fef44a",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 36,
+          "rounds": 108,
+          "residual_syndrome_weight": 2
+        },
+        {
+          "syndrome_sha256": "125f599ba074044579affa290d43cc6888e5f73dc475afe76cb5c2b5890781e8",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 277,
+          "rounds": 108,
+          "residual_syndrome_weight": 2
+        },
+        {
+          "syndrome_sha256": "c709fd46f5d1fb320bbf0beeff31fb767598189f454027c70a0a82f41da1ea57",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 843,
+          "rounds": 108,
+          "residual_syndrome_weight": 2
+        },
+        {
+          "syndrome_sha256": "e4a1f65d4d5dbd786189eaa81ac750bc3c416354b9835e976dfc5e3ad4f8ec9a",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 1548,
+          "rounds": 108,
+          "residual_syndrome_weight": 2
+        },
+        {
+          "syndrome_sha256": "6aa3b1a434f740460fca19b9c737462a7751bcadc58c9bf1e5b13ebaa272cfe5",
+          "code": "[[108,8,10]]",
+          "sector": "X",
+          "shot_index": 1770,
+          "rounds": 108,
+          "residual_syndrome_weight": 3
+        },
+        {
+          "syndrome_sha256": "a5b330dccc82a639430c4cb8b03612fd24947a530660f2aab1d9d7acfee2ab46",
+          "code": "[[108,8,10]]",
+          "sector": "Z",
+          "shot_index": 589,
+          "rounds": 108,
+          "residual_syndrome_weight": 3
+        },
+        {
+          "syndrome_sha256": "7dae629772c8966999d85bcd341b66cef3dc04d7238b0d88278152256a32740e",
+          "code": "[[108,8,10]]",
+          "sector": "Z",
+          "shot_index": 1277,
+          "rounds": 108,
+          "residual_syndrome_weight": 2
+        },
+        {
+          "syndrome_sha256": "d3c5a77227b03f3dd243de72a6f4fd46d4de5c488c521a16e3b9852fc09c879b",
+          "code": "[[108,8,10]]",
+          "sector": "Z",
+          "shot_index": 1291,
+          "rounds": 108,
+          "residual_syndrome_weight": 2
+        },
+        {
+          "syndrome_sha256": "10b231200d1fd0e0330ca193eb691493206ffde98b23f74d40c60432dd672bd0",
+          "code": "[[108,8,10]]",
+          "sector": "Z",
+          "shot_index": 1875,
+          "rounds": 108,
+          "residual_syndrome_weight": 2
+        }
+      ]
+    }
+  ],
+  "boundary": "Only iteration count and clipping are varied here; tie-breaking and serial scheduling require an extended kernel."
+}

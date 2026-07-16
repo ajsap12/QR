@@ -1,0 +1,83 @@
+name: Adaptive Ordering BPGD Gate
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - phase-3b-4a-audit-smoke
+    paths:
+      - 'phase4/bb/adaptive_ordering_bpgd.py'
+      - 'phase4/bb/run_adaptive_ordering_gate.py'
+      - 'phase4/bb/analyze_adaptive_ordering_gate.py'
+      - '.github/workflows/adaptive-ordering-gate.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: adaptive-ordering-gate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  curated-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: phase-3b-4a-audit-smoke
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip && python -m pip install numpy numba
+      - name: Regenerate exact failure corpus
+        working-directory: phase4/bb
+        run: python run_regenerate_and_replay_failures.py
+      - name: Run curated adaptive-ordering gate
+        working-directory: phase4/bb
+        run: python run_adaptive_ordering_gate.py --split curated --max-cases 1000
+      - name: Analyze curated gate
+        working-directory: phase4/bb
+        run: python analyze_adaptive_ordering_gate.py --split curated
+      - name: Upload curated results
+        uses: actions/upload-artifact@v4
+        with:
+          name: adaptive-ordering-curated
+          path: |
+            phase4/bb/adaptive_ordering_curated_results.json
+            phase4/bb/adaptive_ordering_curated_analysis.json
+            phase4/bb/ADAPTIVE_ORDERING_CURATED_ANALYSIS.md
+
+  held-out-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: phase-3b-4a-audit-smoke
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip && python -m pip install numpy numba
+      - name: Build expanded hard-case corpus
+        working-directory: phase4/bb
+        env:
+          QR_CORPUS_SHOTS: '1000'
+          QR_CORPUS_MAX_CASES: '500'
+        run: python build_expanded_failure_corpus.py --rates '0.02,0.03,0.04'
+      - name: Run held-out adaptive-ordering gate
+        working-directory: phase4/bb
+        run: python run_adaptive_ordering_gate.py --split test --max-cases 1000
+      - name: Analyze held-out gate
+        working-directory: phase4/bb
+        run: python analyze_adaptive_ordering_gate.py --split test
+      - name: Upload held-out results
+        uses: actions/upload-artifact@v4
+        with:
+          name: adaptive-ordering-held-out
+          path: |
+            phase4/bb/adaptive_ordering_test_results.json
+            phase4/bb/adaptive_ordering_test_analysis.json
+            phase4/bb/ADAPTIVE_ORDERING_TEST_ANALYSIS.md

@@ -1,0 +1,32 @@
+{
+  "experiment": "equation_level_bp_validation_suite",
+  "executed_on": "2026-07-14",
+  "tests_run": 9,
+  "tests_passed": 9,
+  "tests_failed": 0,
+  "validated": [
+    "channel LLR initialization log((1-p)/p)",
+    "even-syndrome check-node sign",
+    "odd-syndrome check-node sign inversion",
+    "variable-to-check exclusion of the target edge",
+    "posterior LLR inclusion of all incoming check messages",
+    "hard-decision convention: bit 1 iff posterior LLR < 0",
+    "current reliability convention: absolute posterior LLR",
+    "one-check degree-two even-syndrome hand calculation",
+    "one-check degree-two odd-syndrome tie calculation"
+  ],
+  "key_finding": "For a symmetric degree-two check with odd syndrome and identical channel priors, one flooding iteration produces exactly zero posterior LLR on both variables. The current hard-decision rule chooses zero at LLR=0 and the current decimation rule breaks equal-reliability ties by lowest variable index. Therefore deterministic tie handling can alter the entire BPGD path even when the update equations are correct.",
+  "what_this_rules_out": [
+    "a simple missing (-1)^syndrome sign in the check update",
+    "including the target check message in the variable-to-check update",
+    "reversing the ordinary hard-decision sign convention"
+  ],
+  "remaining_high_priority_uncertainties": [
+    "whether Equation 26 is exactly absolute posterior LLR or a distinct bias metric",
+    "the authors' tie-breaking rule when reliabilities are equal or numerically indistinguishable",
+    "whether zero posterior LLR is mapped deterministically, randomly, or by the prior hard decision",
+    "floating-point saturation and clipping behavior",
+    "parallel versus serial update scheduling"
+  ],
+  "gate_status": "equations_basic_checks_passed_tie_semantics_unresolved"
+}

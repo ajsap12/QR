@@ -1,0 +1,40 @@
+{
+  "experiment": "bounded_stateful_semantic_variant_diagnostic",
+  "executed_on": "2026-07-14",
+  "execution_environment": "ChatGPT Python runtime; CPU; Python 3.13; NumPy; Numba",
+  "scope": {
+    "codes": ["[[72,12,6]]", "[[108,8,10]]", "[[144,12,12]]"],
+    "sectors": ["X", "Z"],
+    "shots_per_code_sector": 20,
+    "total_shots_per_variant": 120,
+    "physical_error_rate": 0.04
+  },
+  "variants": [
+    {
+      "name": "baseline_parallel_lowest_index",
+      "nonconvergence": 0,
+      "tie_events": 4,
+      "mean_decimations": 2.1333333333333333
+    },
+    {
+      "name": "parallel_highest_index",
+      "nonconvergence": 0,
+      "tie_events": 4,
+      "mean_decimations": 2.1333333333333333
+    },
+    {
+      "name": "parallel_seeded_random_ties",
+      "nonconvergence": 0,
+      "tie_events": 4,
+      "mean_decimations": 2.1333333333333333
+    },
+    {
+      "name": "parallel_clip_25",
+      "nonconvergence": 0,
+      "tie_events": 0,
+      "mean_decimations": 1.8833333333333333
+    }
+  ],
+  "finding": "On this bounded 120-shot sample, tie-policy changes did not alter aggregate convergence, while reducing numeric clipping from 50 to 25 lowered mean decimations and eliminated recorded exact-tie events. This is diagnostic only because none of the rare fixed 17 failure cases occurred in the bounded sample.",
+  "scientific_boundary": "This bounded run does not resolve the 17 fixed failures. The exact failure syndromes must be persisted and replayed through the extended kernel before selecting any semantic variant."
+}

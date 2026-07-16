@@ -1,0 +1,99 @@
+name: BPGD Failure Replay
+
+on:
+  push:
+    branches:
+      - phase-3b-4a-audit-smoke
+    paths:
+      - 'phase4/bb/**'
+      - '.github/workflows/bpgd-failure-replay.yml'
+  pull_request:
+    branches:
+      - phase-3a-hypotheses-experiments
+    paths:
+      - 'phase4/bb/**'
+      - '.github/workflows/bpgd-failure-replay.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bpgd-failure-replay-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: phase-3b-4a-audit-smoke
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip && python -m pip install numpy numba
+      - name: Regenerate failure corpus and replay T/clipping variants
+        working-directory: phase4/bb
+        run: python run_regenerate_and_replay_failures.py
+      - name: Replay semantic decoder variants on exact failures
+        working-directory: phase4/bb
+        run: python run_semantic_failure_replay.py
+      - name: Analyze semantic replay results
+        working-directory: phase4/bb
+        run: python analyze_semantic_failure_replay.py
+      - name: Capture serial and parallel trajectories
+        working-directory: phase4/bb
+        run: python run_schedule_trajectory_analysis.py
+      - name: Classify serial and parallel divergence
+        working-directory: phase4/bb
+        run: python analyze_schedule_trajectory.py
+      - name: Diagnose invariant BPGD failures
+        working-directory: phase4/bb
+        run: python analyze_invariant_bpgd_failures.py
+      - name: Analyze invariant failure structure
+        working-directory: phase4/bb
+        run: python analyze_invariant_structure.py
+      - name: Run reversible BPGD gate-one replay
+        working-directory: phase4/bb
+        run: python run_reversible_failure_replay.py
+      - name: Analyze reversible BPGD gate-one result
+        working-directory: phase4/bb
+        run: python analyze_reversible_failure_replay.py
+      - name: Run matched restart and narrow-beam controls
+        working-directory: phase4/bb
+        run: python run_gate2_controls.py
+      - name: Build Gate 2 preliminary dashboard
+        working-directory: phase4/bb
+        run: python analyze_gate2_controls.py
+      - name: Analyze restart-only trajectory divergence
+        working-directory: phase4/bb
+        run: python analyze_restart_divergence.py
+      - name: Upload replay artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: bpgd-failure-replay
+          path: |
+            phase4/bb/stateful_failure_corpus.json
+            phase4/bb/exact_failure_variant_results.json
+            phase4/bb/semantic_failure_replay_results.json
+            phase4/bb/semantic_failure_replay_analysis.json
+            phase4/bb/SEMANTIC_FAILURE_REPLAY_ANALYSIS.md
+            phase4/bb/schedule_trajectory_results.json
+            phase4/bb/schedule_trajectory_analysis.json
+            phase4/bb/SCHEDULE_TRAJECTORY_ANALYSIS.md
+            phase4/bb/invariant_bpgd_failure_diagnostics.json
+            phase4/bb/INVARIANT_BPGD_FAILURE_DIAGNOSTICS.md
+            phase4/bb/invariant_failure_structure.json
+            phase4/bb/INVARIANT_FAILURE_STRUCTURE.md
+            phase4/bb/reversible_bpgd_results.json
+            phase4/bb/reversible_bpgd_gate_analysis.json
+            phase4/bb/REVERSIBLE_BPGD_GATE_ANALYSIS.md
+            phase4/bb/gate2_control_results.json
+            phase4/bb/gate2_control_analysis.json
+            phase4/bb/GATE2_CONTROL_DASHBOARD.md
+            phase4/bb/restart_divergence_analysis.json
+            phase4/bb/RESTART_DIVERGENCE_ANALYSIS.md
+          if-no-files-found: error

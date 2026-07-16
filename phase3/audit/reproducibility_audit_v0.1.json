@@ -1,0 +1,72 @@
+{
+  "version": "0.1",
+  "executed_on": "2026-07-13",
+  "scope": "Initial source-and-artifact audit only; no paper's principal computational result has yet been reproduced.",
+  "method": "Checked official arXiv records for paper identity, scope, and whether an implementation artifact could be confirmed from the source record during this pass.",
+  "papers": [
+    {
+      "paper_id": "arxiv-1907.11157",
+      "classification": "not_applicable_review_paper",
+      "official_source_confirmed": true,
+      "principal_computational_result": false,
+      "official_code_artifact_confirmed": false,
+      "next_action": "Use as ontology and terminology reference; verify cited equations/figures rather than reproduce a benchmark."
+    },
+    {
+      "paper_id": "arxiv-2306.09767",
+      "classification": "partially_audited",
+      "official_source_confirmed": true,
+      "principal_computational_result": true,
+      "official_code_artifact_confirmed": false,
+      "next_action": "Locate an author-linked implementation or independently implement the decoder described in the paper, then reproduce one small surface-code result."
+    },
+    {
+      "paper_id": "arxiv-2312.10950",
+      "classification": "partially_audited",
+      "official_source_confirmed": true,
+      "principal_computational_result": true,
+      "official_code_artifact_confirmed": false,
+      "next_action": "Locate or reconstruct BPGD; verify binary/quaternary conventions and reproduce a small non-convergence comparison against BP-OSD."
+    },
+    {
+      "paper_id": "arxiv-2408.10001",
+      "classification": "partially_audited",
+      "official_source_confirmed": true,
+      "principal_computational_result": true,
+      "official_code_artifact_confirmed": false,
+      "next_action": "Reimplement the published search algorithm on a tiny search space and reproduce at least one reported code instance."
+    },
+    {
+      "paper_id": "arxiv-2509.22347",
+      "classification": "partially_audited",
+      "official_source_confirmed": true,
+      "principal_computational_result": true,
+      "official_code_artifact_confirmed": false,
+      "next_action": "Locate author code/model checkpoints or document the missing training, architecture, and preprocessing details before attempting reproduction."
+    },
+    {
+      "paper_id": "arxiv-2510.05211",
+      "classification": "partially_audited",
+      "official_source_confirmed": true,
+      "principal_computational_result": true,
+      "official_code_artifact_confirmed": false,
+      "next_action": "Reproduce one enumerated self-dual BB instance and verify its algebraic self-duality and stated parameters."
+    },
+    {
+      "paper_id": "arxiv-2602.07578",
+      "classification": "source_record_not_resolved_in_initial_web_pass",
+      "official_source_confirmed": false,
+      "principal_computational_result": true,
+      "official_code_artifact_confirmed": false,
+      "next_action": "Resolve and verify the exact official paper record and any linked implementation before treating the current extraction as reproducible evidence."
+    }
+  ],
+  "summary": {
+    "fully_reproduced": 0,
+    "partially_audited": 5,
+    "not_applicable_review_paper": 1,
+    "unresolved_source_record": 1,
+    "confirmed_official_code_artifacts": 0
+  },
+  "scientific_warning": "Absence of a confirmed code link in this initial pass does not prove that no code exists; it means no official implementation was verified during this audit pass."
+}

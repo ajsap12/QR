@@ -1,0 +1,65 @@
+{
+  "experiment": "preliminary_bp_osd_logical_error_sweep",
+  "executed_on": "2026-07-13",
+  "execution_environment": "ChatGPT Python runtime; CPU; Python 3.13; ldpc package available in environment",
+  "code": "Published BB [[144,12,12]] matrix instance; n=144 and k=12 independently reconstructed, distance 12 taken from publication and not re-certified here",
+  "noise_model": "Independent binary X-error code-capacity model",
+  "decoder": "ldpc.BpOsdDecoder through BpOsdAdapter",
+  "decoder_config": {
+    "max_iter": 100,
+    "bp_method": "ms",
+    "ms_scaling_factor": 0.0,
+    "osd_method": "osd_cs",
+    "osd_order": 7
+  },
+  "shots_per_point": 500,
+  "seed_policy": "20260713 + int(p*1000)",
+  "points": [
+    {
+      "physical_error_rate": 0.02,
+      "shots": 500,
+      "logical_failures": 0,
+      "syndrome_failures": 0,
+      "exact_error_matches": 496,
+      "logical_error_rate": 0.0,
+      "wilson_95_low": 0.0,
+      "wilson_95_high": 0.007624340461552241,
+      "elapsed_seconds": 0.040412905000039245
+    },
+    {
+      "physical_error_rate": 0.04,
+      "shots": 500,
+      "logical_failures": 5,
+      "syndrome_failures": 0,
+      "exact_error_matches": 479,
+      "logical_error_rate": 0.01,
+      "wilson_95_low": 0.004278753896590496,
+      "wilson_95_high": 0.023193099755730702,
+      "elapsed_seconds": 0.07969183399995927
+    },
+    {
+      "physical_error_rate": 0.06,
+      "shots": 500,
+      "logical_failures": 70,
+      "syndrome_failures": 0,
+      "exact_error_matches": 390,
+      "logical_error_rate": 0.14,
+      "wilson_95_low": 0.11232266018786358,
+      "wilson_95_high": 0.17316686494445405,
+      "elapsed_seconds": 0.38128781799991884
+    },
+    {
+      "physical_error_rate": 0.08,
+      "shots": 500,
+      "logical_failures": 169,
+      "syndrome_failures": 0,
+      "exact_error_matches": 263,
+      "logical_error_rate": 0.338,
+      "wilson_95_low": 0.29791302434501227,
+      "wilson_95_high": 0.3805572619645308,
+      "elapsed_seconds": 0.8016109759998926
+    }
+  ],
+  "interpretation": "The integration now distinguishes stabilizer-equivalent residuals from nontrivial logical residuals. Logical failure rises across this small p grid, while every decoded residual had zero syndrome.",
+  "warning": "Preliminary 500-shot integration sweep only. It is not a threshold estimate, does not include Z errors or depolarizing noise, and is not a comparison with BPGD or diffusion decoding."
+}

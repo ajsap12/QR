@@ -1,0 +1,36 @@
+{
+  "experiment": "optimized_stateful_sum_product_12000_shot_validation",
+  "executed_on": "2026-07-14",
+  "execution_environment": "ChatGPT Python runtime; CPU; Python 3.13; NumPy; Numba",
+  "configuration": {
+    "physical_error_rate": 0.04,
+    "iterations_per_round": 100,
+    "llr_max": 25.0,
+    "shots_per_code_sector": 2000,
+    "total_shots": 12000,
+    "fallback": false,
+    "seed": 20260714
+  },
+  "records": [
+    {"code":"[[72,12,6]]","sector":"X","shots":2000,"nonconvergence":0,"mean_decimations":1.0645,"elapsed_seconds":7.764503717422485},
+    {"code":"[[72,12,6]]","sector":"Z","shots":2000,"nonconvergence":0,"mean_decimations":0.981,"elapsed_seconds":7.529021978378296},
+    {"code":"[[108,8,10]]","sector":"X","shots":2000,"nonconvergence":9,"mean_decimations":1.7715,"elapsed_seconds":17.611262559890747},
+    {"code":"[[108,8,10]]","sector":"Z","shots":2000,"nonconvergence":7,"mean_decimations":1.288,"elapsed_seconds":13.87078046798706},
+    {"code":"[[144,12,12]]","sector":"X","shots":2000,"nonconvergence":1,"mean_decimations":1.2415,"elapsed_seconds":18.277326345443726},
+    {"code":"[[144,12,12]]","sector":"Z","shots":2000,"nonconvergence":0,"mean_decimations":0.868,"elapsed_seconds":14.840852499008179}
+  ],
+  "summary": {
+    "total_nonconvergence": 17,
+    "total_elapsed_seconds_excluding_jit_compile": 79.8937475681305,
+    "baseline_original_nonconvergence_cases": 16,
+    "original_cases_also_failing_stateful": 5,
+    "original_cases_resolved_by_stateful": 11,
+    "new_stateful_only_failure_cases": 12
+  },
+  "interpretation": [
+    "Persistent BP message state resolves 11 of the 16 original packaged-decoder nonconvergence cases.",
+    "Message persistence alone does not solve BPGD fidelity: the custom stateful engine produced 12 different failures and 17 total nonconvergences on the fixed-seed corpus.",
+    "The remaining mismatch is likely in one or more of the exact sum-product equations, reliability definition, syndrome-sign convention, update ordering, numerical clipping, or tie-breaking behavior."
+  ],
+  "scientific_boundary": "This is a full fixed-seed integration validation, not a successful paper reproduction. Pure-BPGD performance comparisons remain blocked because nonconvergence is not yet eliminated or reconciled with the paper's implementation."
+}

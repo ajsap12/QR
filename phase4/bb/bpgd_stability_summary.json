@@ -1,0 +1,25 @@
+{
+  "experiment": "bpgd_syndrome_stability_stress_test",
+  "executed_on": "2026-07-14",
+  "execution_environment": "ChatGPT Python runtime; CPU; Python 3.13; ldpc==2.4.0",
+  "physical_error_rate": 0.04,
+  "noise_model": "independent binary code-capacity noise, evaluated separately in X and Z sectors",
+  "shots_per_code_sector": 2000,
+  "total_shots": 12000,
+  "records": [
+    {"code":"[[72,12,6]]","sector":"X","shots":2000,"syndrome_failures":0,"fallback_uses":0,"mean_decimations":0.269},
+    {"code":"[[72,12,6]]","sector":"Z","shots":2000,"syndrome_failures":0,"fallback_uses":0,"mean_decimations":0.35},
+    {"code":"[[108,8,10]]","sector":"X","shots":2000,"syndrome_failures":0,"fallback_uses":9,"mean_decimations":1.646},
+    {"code":"[[108,8,10]]","sector":"Z","shots":2000,"syndrome_failures":0,"fallback_uses":7,"mean_decimations":1.198},
+    {"code":"[[144,12,12]]","sector":"X","shots":2000,"syndrome_failures":0,"fallback_uses":0,"mean_decimations":1.142},
+    {"code":"[[144,12,12]]","sector":"Z","shots":2000,"syndrome_failures":0,"fallback_uses":0,"mean_decimations":1.092}
+  ],
+  "summary": {
+    "syndrome_failures": 0,
+    "fallback_uses": 16,
+    "fallback_rate": 0.0013333333333333333,
+    "elapsed_seconds": 5.9152382930001295
+  },
+  "interpretation": "The syndrome-safe path eliminated invalid returned corrections across 12,000 trials. Guided decimation alone failed to converge on 16 samples, all on the 108-qubit code, and those cases were recovered by the explicitly reported BP-OSD fallback.",
+  "scientific_boundary": "Zero returned syndrome failures does not mean pure BPGD converged on every sample. Fallback cases must be reported separately and excluded from any claim about standalone BPGD performance. The current implementation remains independent and provisional pending line-by-line paper or author-code validation."
+}
